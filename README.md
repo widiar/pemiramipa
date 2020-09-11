@@ -21,5 +21,3 @@ Ubah file .env.example dengan .env
 -   Tambahkan baris ini di paling bawah untuk konfigurasi google rechapta
     SITE_KEY="6LehBccZAAAAAFowjk5JWTP9nlTJH3lzFyb1tZa-"
     SECRET_KEY="6LehBccZAAAAALvTSQCoeqYCX3jjysIOve_GjN_r"
-
-## Pahami Laravel
