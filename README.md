@@ -13,7 +13,7 @@
 
 ## File .env
 
-Ubah file .env.example dengan .env
+Copas dulu file env.example baru Ubah file .env.example dengan .env
 
 -   Isikan APP_NAME bebas
 -   Isikan DB_DATABASE dengan nama database yg udah di buat tadi
