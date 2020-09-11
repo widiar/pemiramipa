@@ -53,7 +53,7 @@
         </form>
         <hr>
         <p class="mb-1 text-center">
-            <a href="lupapassword">Kelupaan Password</a>
+            <a href="lupapassword">Lupa Password</a>
         </p>
         <p class="mb-0 text-center">
             <a href="register">Register akun baru</a>

@@ -57,7 +57,6 @@
                                     <input type="hidden" name="waktu" value="0" class="waktuh{{$siswa['nim']}}">
                                     <button type="submit" class="btn {{$siswa['mahasiswa']['waktuVoting'] == 1 ? 'btn-primary' : 'btn-outline-primary'}} waktu1{{$siswa['nim']}} waktu1" {{$siswa['mahasiswa']['waktuVoting'] == 1 ? 'disabled' : ''}} value="1_{{$siswa['nim']}}">Waktu 1</button>
                                     <button type="submit" class="btn {{$siswa['mahasiswa']['waktuVoting'] == 2 ? 'btn-primary' : 'btn-outline-primary'}} waktu2{{$siswa['nim']}} waktu2" {{$siswa['mahasiswa']['waktuVoting'] == 2 ? 'disabled' : ''}} value="2_{{$siswa['nim']}}">Waktu 2</button>
-                                    <button type="submit" class="btn {{$siswa['mahasiswa']['waktuVoting'] == 3 ? 'btn-primary' : 'btn-outline-primary'}} waktu3{{$siswa['nim']}} waktu3" {{$siswa['mahasiswa']['waktuVoting'] == 3 ? 'disabled' : ''}} value="3_{{$siswa['nim']}}">Waktu 3</button>
                                 </form>
                                 @endif
                             </td>
