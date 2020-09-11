@@ -1,0 +1,192 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Mahasiswa;
+use App\Mail\ResetPassword;
+use App\TokenUser;
+use App\User;
+use DateTime;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+
+class ProfileController extends Controller
+{
+    public function login()
+    {
+        return view('login');
+    }
+
+    public function register()
+    {
+        return view('register');
+    }
+    public function daftar(Request $request)
+    {
+        $rules = [
+            'nama' => 'required',
+            'nim' => 'required|size:10|unique:mahasiswa',
+            'password' => 'required|same:password2|min:8',
+            'ktm' => 'required|image|mimes:png,jpeg|max:3072',
+            'prodi' => 'required',
+            'email' => 'email|required|unique:users',
+        ];
+        $messages = [
+            'required' => 'Tolong :attribute di isi',
+            'nim.size' => 'NIM haruslah 10 digit',
+            'password.same' => 'Password haruslah sama',
+            'min' => ':Attribute haruslah minimal :min karakter',
+            'max' => ['file' => ':Attribute haruslah maksimal :max kilobytes']
+        ];
+        $valid = Validator::make($request->all(), $rules, $messages);
+        if ($valid->fails()) {
+            return redirect('/register')->withErrors($valid)->withInput();
+        }
+        $get = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . env('SECRET_KEY') . "&response=" . $request->response);
+        $rechapta = json_decode($get);
+        if ($rechapta->success == false) {
+            return redirect('/register')->with('status', 'Anda Robot :)');
+        }
+        $namaktm = uniqid() . '.' . $request->ktm->extension();
+        $password = Hash::make($request->password);
+        $data = [
+            'nama' => $request->nama,
+            'nim' => $request->nim,
+            'prodi' => $request->prodi,
+            'ktm' => $namaktm,
+        ];
+        $user = [
+            'nim' => $request->nim,
+            'password' => $password,
+            'email' => $request->email,
+        ];
+        User::create($user);
+        Mahasiswa::create($data);
+        $request->ktm->storeAs('ktm', $namaktm, 'upi');
+        return redirect('/register')->with('status', 'Anda berhasil Mendaftar');
+    }
+    public function masuk(Request $request)
+    {
+        $request->validate([
+            'nim' => 'required',
+            'password' => 'required'
+        ]);
+        $get = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . env('SECRET_KEY') . "&response=" . $request->response);
+        $rechapta = json_decode($get);
+        if ($rechapta->success == false) {
+            return redirect('/login')->with('status', 'Anda Robot :)');
+        }
+        $data = User::where('nim', $request->nim)->first();
+        // if ($data) {
+        //     if (Hash::check($request->password, $data->password)) {
+        //         session(['key' => 'value']);
+        //         dd($request->session()->get('key'));
+        //     } else {
+        //         return "Salah";
+        //     }
+        // } else {
+        //     return "Gagal";
+        // }
+        $cr = [
+            'nim' => $request->nim,
+            'password' => $request->password,
+            'verif' => 1
+        ];
+        if (Auth::attempt($cr)) {
+            return redirect('/panduan');
+        } else {
+            if ($data) {
+                if ($data->verif == 0)
+                    return redirect('/login')->with('status', 'NIM Anda belum di verifikasi. Silahkan hubungi panitia')->withInput();
+            }
+            return redirect('/login')->with('status', 'NIM atau Password Anda Salah')->withInput();
+        }
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/login');
+    }
+    public function kelupaan(Request $request)
+    {
+        $request->validate([
+            'nim' => 'required',
+        ]);
+        $data = User::where('nim', $request->nim)->orWhere('email', $request->nim)->first();
+        if (!$data || $data->role == 1) {
+            return redirect('/login')->with('status', 'Email atau NIM yang Anda Masukkan Belum Terdaftar');
+        } elseif ($data->verif == 0) {
+            return redirect('/login')->with('status', 'Akun anda belum terverifikasi silahkan hubungi panitia')->withInput();
+        } elseif ($data->role == 0) {
+            $cek = TokenUser::where('email', $data->email)->first();
+            $token = base64_encode(random_bytes(17));
+            if ($cek) {
+                TokenUser::where('email', $data->email)->update(['token' => $token]);
+            } else {
+                $masuk = [
+                    'email' => $data->email,
+                    'token' => $token,
+                ];
+                TokenUser::create($masuk);
+            }
+            Mail::to($data->email)->send(new ResetPassword($data->email, urlencode($token)));
+            return redirect('/lupapassword')->with('status', 'Sudah dikirim. Silahkan cek email Anda');
+        }
+    }
+    public function resetpassemail(Request $request)
+    {
+        $data = TokenUser::where('email', $request->email)->first();
+        // dd(urldecode($request->token));
+        // dd($request->token);
+        if ($data) {
+            if (strcmp($data->token, urldecode($request->token)) == 0) {
+                $expire = new DateTime($data->updated_at);
+                $expire->modify('+1 hour');
+                if (new DateTime() < $expire) {
+                    $request->session()->put('emailyanglupa', $data->email);
+                    return redirect('/forgotpassword');
+                }
+            }
+        }
+        return redirect('/login')->with('status', 'Link sudah expired.');
+    }
+    public function ubahpasslewatemail(Request $request)
+    {
+        if (!$request->session()->has('emailyanglupa'))
+            return redirect('/login')->with('status', 'Silahkan klik tombol lupa password dulu');
+        return view('ubahpassword');
+    }
+    public function storepasslewatemail(Request $request)
+    {
+        //validation
+        $rules = [
+            'password' => 'required|same:ulangipassword|min:8',
+            'ulangipassword' => 'required'
+        ];
+        $msg = [
+            'required' => 'Tolong :attribute di isi',
+            'password.same' => 'Password haruslah sama',
+            'min' => ':Attribute haruslah minimal :min karakter'
+        ];
+        $valid = Validator::make($request->all(), $rules, $msg);
+        if ($valid->fails()) {
+            return redirect('/forgotpassword')->withErrors($valid)->withInput();
+        }
+        //buat ubah password
+        $email = $request->session()->get('emailyanglupa');
+        $mahasiswa = User::where('email', $email)->first();
+        if ($mahasiswa) {
+            if (Hash::check($request->password, $mahasiswa->password)) {
+                return redirect('/forgotpassword')->with('status', 'Password anda sama dengan sebelumnya, silahkan gunakan password yang lain');
+            }
+            $password = Hash::make($request->password);
+            User::where('email', $email)->update(['password' => $password]);
+            TokenUser::where('email', $email)->delete();
+            $request->session()->forget('emailyanglupa');
+            return redirect('/login')->with('statussukses', 'Password berhasil diubah silahkan login');
+        }
+    }
+}
