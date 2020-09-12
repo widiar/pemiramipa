@@ -72,6 +72,9 @@
   <script src="{{ asset('dist/js/adminlte.js') }}"></script>
   <script src="{{ asset('dist/js/sweetalert2.all.js') }}"></script>
 
+  <!-- chartjs -->
+  <script src="{{ asset('plugins/chart.js/Chart.bundle.min.js') }}"></script>
+
   <!-- OPTIONAL SCRIPTS -->
   <script src="{{ asset('dist/js/demo.js') }}"></script>
   <script src="{{ asset('dist/js/bs-custom-file-input.js') }}"></script>

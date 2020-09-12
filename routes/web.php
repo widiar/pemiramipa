@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //ngetes
-Route::post('/masuksuara', 'DashboardController@masuksuara');
+// Route::post('/masuksuara', 'DashboardController@masuksuara');
 
 //login
 Route::get('/login', 'ProfileController@login')->name('login');
