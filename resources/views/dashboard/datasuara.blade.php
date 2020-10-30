@@ -9,8 +9,6 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        <input type="hidden" class="bem1" value="{{ $voting->bem1 }}">
-        <input type="hidden" class="bem2" value="{{ $voting->bem2 }}">
         <div class="isi" style="position: relative; height:100%; width:100%">
             <canvas id="myChart"></canvas>
         </div>
@@ -21,15 +19,12 @@
 @section('script')
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
-    var bem1 = $(".bem1").val();
-    var bem2 = $(".bem2").val();
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
             labels: ['Calon BEM 1', 'Calon BEM 2'],
             datasets: [{
                 label: '# of Votes',
-                data: [bem1, bem2],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
