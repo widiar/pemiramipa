@@ -87,4 +87,8 @@ class AdminController extends Controller
         // elseif ($r->waktu == 3)
         //     return 3;
     }
+    public function superadmin()
+    {
+        return view('admin.superadmin');
+    }
 }

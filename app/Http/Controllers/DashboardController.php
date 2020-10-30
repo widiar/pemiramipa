@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mahasiswa;
 use App\User;
 use App\Voting;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -16,11 +17,17 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $mahasiswa = Mahasiswa::with('user')->find($user->nim);
-        return view('dashboard.voting', compact('mahasiswa'));
+        // dd($mahasiswa->user->email);
+        $waktunya = new DateTime("2020-10-29 16:00:00");
+        if (new DateTime() > $waktunya)
+            return view('dashboard.voting', compact('mahasiswa'));
+        else
+            return view('dashboard.belumvoting');
     }
     public function suara(Request $request)
     {
-        return view('dashboard.datasuara');
+        $voting = Voting::first();
+        return view('dashboard.datasuara', compact('voting'));
     }
     public function masuksuara(Request $request)
     {
@@ -86,5 +93,10 @@ class DashboardController extends Controller
             return redirect('/dashboard/ubahpassword')->with('sukses', 'Password anda berhasil di ubah.');
         } else
             return redirect('/dashboard/ubahpassword')->with('status', 'Password lama anda masukkan salah.');
+    }
+    public function updatechart()
+    {
+        $data = Voting::first();
+        return response()->json(compact('data'));
     }
 }

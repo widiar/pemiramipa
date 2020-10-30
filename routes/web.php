@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //ngetes
-// Route::post('/masuksuara', 'DashboardController@masuksuara');
+Route::get('coba', 'DashboardController@updatechart')->name('updatechart');
 
 //login
 Route::get('/login', 'ProfileController@login')->name('login');
@@ -51,6 +51,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('dashboard.ubahpassword');
     });
     Route::post('/dashboard/gantipassword', 'DashboardController@gantipassword');
+    Route::post('/masuksuara', 'DashboardController@masuksuara');
 });
 
 //admin
@@ -61,4 +62,5 @@ Route::group(['middleware' => ['auth', 'cekrole']], function () {
     Route::patch('/verifktm/{mahasiswa}', 'AdminController@ktmgajadiverif');
     Route::delete('/verifikasipemilih/{mahasiswa}', 'AdminController@hapuspemilih');
     Route::post('/waktumilih/{mahasiswa}', 'AdminController@ubahwaktu');
+    Route::get('/superadmin', 'AdminController@superadmin');
 });

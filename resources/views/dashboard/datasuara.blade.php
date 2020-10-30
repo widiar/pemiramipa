@@ -1,12 +1,19 @@
 @extends('masterTemplate.master')
 
+@section('meta')
+<!-- <meta http-equiv="refresh" content="5" /> -->
+@endsection
 @section('title','PRESMA')
-@section('content-header', 'Panduan')
+@section('content-header', 'Data Suara BEM')
 
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        <canvas id="myChart" width="400" height="400"></canvas>
+        <input type="hidden" class="bem1" value="{{ $voting->bem1 }}">
+        <input type="hidden" class="bem2" value="{{ $voting->bem2 }}">
+        <div class="isi" style="position: relative; height:100%; width:100%">
+            <canvas id="myChart"></canvas>
+        </div>
     </div>
 </div>
 @endsection
@@ -14,28 +21,22 @@
 @section('script')
 <script>
     var ctx = document.getElementById('myChart').getContext('2d');
+    var bem1 = $(".bem1").val();
+    var bem2 = $(".bem2").val();
     var myChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: ['Calon BEM 1', 'Calon BEM 2'],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [bem1, bem2],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
                 ],
                 borderColor: [
                     'rgba(255, 99, 132, 1)',
                     'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
                 ],
                 borderWidth: 1
             }]
@@ -50,5 +51,23 @@
             }
         }
     });
+    var updateChart = function() {
+        $.ajax({
+            url: "{{ route('updatechart') }}",
+            type: 'GET',
+            dataType: 'json',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function(data) {
+                myChart.data.datasets[0].data = [data.data.bem1, data.data.bem2];
+                myChart.update();
+            }
+        });
+    }
+    updateChart();
+    setInterval(() => {
+        updateChart();
+    }, 1000);
 </script>
 @endsection

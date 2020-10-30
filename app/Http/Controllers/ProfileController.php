@@ -79,7 +79,9 @@ class ProfileController extends Controller
         if ($rechapta->success == false) {
             return redirect('/login')->with('status', 'Anda Robot :)');
         }
-        $data = User::where('nim', $request->nim)->first();
+        // $data = User::where('nim', $request->nim)->first();
+        $data = User::with('mahasiswa')->find($request->nim);
+        // dd($data->mahasiswa->waktuVoting);
         // if ($data) {
         //     if (Hash::check($request->password, $data->password)) {
         //         session(['key' => 'value']);
@@ -90,6 +92,17 @@ class ProfileController extends Controller
         // } else {
         //     return "Gagal";
         // }
+        $waktu1 = new DateTime("2020-10-29 13:00:00");
+        $waktu2 = new DateTime("2020-10-29 14:00:00");
+        //ini untuk nentuin waktu login
+        // if ($data->mahasiswa->waktuVoting == 1) {
+        //     if (new DateTime() < $waktu1) {
+        //         return redirect('/login')->with('status', 'Anda belum waktunya LOGIN')->withInput();
+        //     } elseif (new DateTime() > $waktu2)
+        //         return redirect('/login')->with('status', 'Waktu anda sudah lewat')->withInput();
+        // } elseif ($data->mahasiswa->waktuVoting == 2)
+        //     if (new DateTime() < $waktu2)
+        //         return redirect('/login')->with('status', 'Anda belum waktunya LOGIN')->withInput();
         $cr = [
             'nim' => $request->nim,
             'password' => $request->password,
@@ -120,7 +133,7 @@ class ProfileController extends Controller
             return redirect('/login')->with('status', 'Email atau NIM yang Anda Masukkan Belum Terdaftar');
         } elseif ($data->verif == 0) {
             return redirect('/login')->with('status', 'Akun anda belum terverifikasi silahkan hubungi panitia')->withInput();
-        } elseif ($data->role == 0) {
+        } elseif ($data->role == 0 || $data->role == 2) {
             $cek = TokenUser::where('email', $data->email)->first();
             $token = base64_encode(random_bytes(17));
             if ($cek) {

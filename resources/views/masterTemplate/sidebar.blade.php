@@ -23,7 +23,7 @@
              </p>
            </a>
          </li>
-         @if(auth()->user()->role==0)
+         @if(auth()->user()->role==0 || auth()->user()->role==2)
          <li class="nav-item">
            <a href="/voting" class="nav-link{{request()->is('voting') ? ' active' : '' }}">
              <i class="nav-icon fas fa-vote-yea"></i>
@@ -33,7 +33,17 @@
            </a>
          </li>
          @endif
-         @if(auth()->user()->role == 1)
+         @if(auth()->user()->role==2)
+         <li class="nav-item">
+           <a href="/superadmin" class="nav-link{{request()->is('superadmin') ? ' active' : '' }}">
+             <i class="nav-icon fas fa-vote-yea"></i>
+             <p>
+               SuperAdmin
+             </p>
+           </a>
+         </li>
+         @endif
+         @if(auth()->user()->role == 1 || auth()->user()->role==2)
          <div class="garis-sidebar"></div>
          <li class="nav-item">
            <a href="/verifikasipemilih" class="nav-link{{request()->is('verifikasipemilih') ? ' active' : '' }}">

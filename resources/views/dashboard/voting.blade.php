@@ -91,7 +91,7 @@
 @section('content')
 <div class="content">
     <div class="container-fluid">
-        <h1>Sudah Voting</h1>
+        <h1>Anda Sudah Voting</h1>
     </div>
 </div>
 @endsection
