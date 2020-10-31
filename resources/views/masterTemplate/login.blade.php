@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.css')}}">
+    <link rel="stylesheet" href="{{ asset('dist/css/dashboard.css') }}">
     <!-- Google ReChapta -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <!-- Google Font: Source Sans Pro -->
@@ -30,6 +31,7 @@
         <!-- /.login-logo -->
         @yield('content')
     </div>
+    @yield('diluarlogin')
     <!-- /.login-box -->
 
     <!-- jQuery -->
@@ -39,6 +41,8 @@
     <!-- AdminLTE App -->
     <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
     <script src="{{asset('dist/js/bs-custom-file-input.js')}}"></script>
+    <!-- countdown js -->
+    <script src="{{ asset('dist/js/countdown.js') }}"></script>
     <script>
         $(document).ready(function() {
             bsCustomFileInput.init()

@@ -18,11 +18,7 @@ class DashboardController extends Controller
         $user = Auth::user();
         $mahasiswa = Mahasiswa::with('user')->find($user->nim);
         // dd($mahasiswa->user->email);
-        $waktunya = new DateTime("2020-10-29 16:00:00");
-        if (new DateTime() > $waktunya)
-            return view('dashboard.voting', compact('mahasiswa'));
-        else
-            return view('dashboard.belumvoting');
+        return view('dashboard.voting', compact('mahasiswa'));
     }
     public function suara(Request $request)
     {

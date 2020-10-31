@@ -17,6 +17,11 @@
             {{ session('statussukses') }}
         </div>
         @endif
+        @if(session('warning'))
+        <div class="alert alert-warning">
+            {{ session('warning') }}
+        </div>
+        @endif
         <form action="/" method="post" id="iniformlogin">
             @csrf
             <div class="form-group mb-3">

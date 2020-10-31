@@ -96,7 +96,8 @@ $(document).ready(function () {
             }
         });
     });
-    $("#clock").countdown("2020/10/29 16:00:00", function (event) {
+    //countdown
+    $("#clock").countdown("2020/11/29 16:00:00", function (event) {
         var $this = $(this).html(
             event.strftime(
                 "" +

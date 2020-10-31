@@ -17,7 +17,12 @@ class ProfileController extends Controller
 {
     public function login()
     {
-        return view('login');
+        //cara 1
+        $waktunya = new DateTime("2020-11-29 16:00:00");
+        if (new DateTime() < $waktunya)
+            return view('belumvoting');
+        else
+            return view('login');
     }
 
     public function register()
@@ -81,6 +86,7 @@ class ProfileController extends Controller
         }
         // $data = User::where('nim', $request->nim)->first();
         $data = User::with('mahasiswa')->find($request->nim);
+        //cara manual
         // dd($data->mahasiswa->waktuVoting);
         // if ($data) {
         //     if (Hash::check($request->password, $data->password)) {
@@ -103,6 +109,13 @@ class ProfileController extends Controller
         // } elseif ($data->mahasiswa->waktuVoting == 2)
         //     if (new DateTime() < $waktu2)
         //         return redirect('/login')->with('status', 'Anda belum waktunya LOGIN')->withInput();
+
+        //untuk waktu login cara 1
+        // $waktunya = new DateTime("2020-11-29 16:00:00");
+        // if (new DateTime() < $waktunya && $data->role == 0)
+        //     return redirect('/login')->with('warning', 'Belum Waktunya Voting');
+
+        //cara laravel
         $cr = [
             'nim' => $request->nim,
             'password' => $request->password,
