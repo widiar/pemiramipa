@@ -17,12 +17,7 @@ class ProfileController extends Controller
 {
     public function login()
     {
-        //cara 1
-        $waktunya = new DateTime("2020-11-29 16:00:00");
-        if (new DateTime() < $waktunya)
-            return view('belumvoting');
-        else
-            return view('login');
+        return view('login');
     }
 
     public function register()
@@ -111,9 +106,10 @@ class ProfileController extends Controller
         //         return redirect('/login')->with('status', 'Anda belum waktunya LOGIN')->withInput();
 
         //untuk waktu login cara 1
-        // $waktunya = new DateTime("2020-11-29 16:00:00");
-        // if (new DateTime() < $waktunya && $data->role == 0)
-        //     return redirect('/login')->with('warning', 'Belum Waktunya Voting');
+        $waktunya = new DateTime("2020-11-06 08:00:00");
+        if (new DateTime() < $waktunya && $data->role == 0) {
+            return redirect('/belumwaktunyavoting');
+        }
 
         //cara laravel
         $cr = [

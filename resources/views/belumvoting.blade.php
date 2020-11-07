@@ -18,7 +18,7 @@
 @section('javascripttambahan')
 <script>
     $(document).ready(function() {
-        $("#clock").countdown("2020/11/29 16:00:00", function(event) {
+        $("#clock").countdown("2020/12/06 08:00:00", function(event) {
             var $this = $(this).html(
                 event.strftime(
                     "" +

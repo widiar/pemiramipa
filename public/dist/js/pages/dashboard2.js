@@ -3,13 +3,26 @@ $(document).ready(function () {
     $(".prodi").hide();
     var klik = 0;
     $(".next").click(function () {
-        if ($('input[name="calonbem"]:checked').length == 1) {
-            $(".bem").hide(300);
-            $(".prodi").show(300);
-            $(".prev").show(300);
-            $(this).removeAttr("type").attr("type", "submit");
-            $(this).html("Submit");
-            if (klik <= 2) klik++;
+        if ($('input[name="calonbem"]:checked').length == 1) { //jika sudah di pilih
+            Swal.fire({
+                    title: "Anda Yakin?",
+                    text:
+                        "Anda tidak bisa pindah ke lain hati lagi jika sudah memilih",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yap!",
+                }).then((result) => {
+                    if(result.value){
+                        $(".bem").hide(300);
+                        $(".prodi").show(300);
+                        $(".prev").show(300);
+                        $(this).removeAttr("type").attr("type", "submit");
+                        $(this).html("Submit");
+                        if (klik < 2) klik++;
+                    }
+                })
         } else {
             toastr.options.closeButton = true;
             toastr.options.progressBar = true;
@@ -19,6 +32,7 @@ $(document).ready(function () {
                 "JANGAN GOLPUT!"
             );
         }
+        console.log(klik);
     });
     $(".prev").click(function () {
         $(".prodi").hide(300);

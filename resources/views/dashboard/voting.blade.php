@@ -70,12 +70,88 @@
                         </label>
                     </div>
                 </div>
+                @elseif(strcmp($mahasiswa->prodi, 'Matematika') == 0)
+                <div class="row justify-content-center prodi">
+                    <div class="col-md-6 nopad text-center mb-3 mar">
+                        <label class="prodi-radio">
+                            <img class="img-responsive" src="/img/fotocalon/calon4.png" />
+                            <input type="radio" name="calonhima" value="1" />
+                            <i class="fas fa-check-square"></i>
+                            <br><span><b>Pilihan 1</b></span>
+                        </label>
+                    </div>
+                    <div class="col-md-6 nopad text-center mb-3 mar">
+                        <label class="prodi-radio">
+                            <img class="img-responsive" src="/img/fotocalon/calon4.png" />
+                            <input type="radio" name="calonhima" value="2" />
+                            <i class="fas fa-check-square"></i>
+                            <br><span><b>Pilihan 2</b></span>
+                        </label>
+                    </div>
+                </div>
+                @elseif(strcmp($mahasiswa->prodi, 'Biologi') == 0)
+                <div class="row justify-content-center prodi">
+                    <div class="col-md-6 nopad text-center mb-3 mar">
+                        <label class="prodi-radio">
+                            <img class="img-responsive" src="/img/fotocalon/calon4.png" />
+                            <input type="radio" name="calonhima" value="1" />
+                            <i class="fas fa-check-square"></i>
+                            <br><span><b>Pilihan 1</b></span>
+                        </label>
+                    </div>
+                    <div class="col-md-6 nopad text-center mb-3 mar">
+                        <label class="prodi-radio">
+                            <img class="img-responsive" src="/img/fotocalon/calon4.png" />
+                            <input type="radio" name="calonhima" value="2" />
+                            <i class="fas fa-check-square"></i>
+                            <br><span><b>Pilihan 2</b></span>
+                        </label>
+                    </div>
+                </div>
+                @elseif(strcmp($mahasiswa->prodi, 'Farmasi') == 0)
+                <div class="row justify-content-center prodi">
+                    <div class="col-md-6 nopad text-center mb-3 mar">
+                        <label class="prodi-radio">
+                            <img class="img-responsive" src="/img/fotocalon/calon4.png" />
+                            <input type="radio" name="calonhima" value="1" />
+                            <i class="fas fa-check-square"></i>
+                            <br><span><b>Pilihan 1</b></span>
+                        </label>
+                    </div>
+                    <div class="col-md-6 nopad text-center mb-3 mar">
+                        <label class="prodi-radio">
+                            <img class="img-responsive" src="/img/fotocalon/calon4.png" />
+                            <input type="radio" name="calonhima" value="2" />
+                            <i class="fas fa-check-square"></i>
+                            <br><span><b>Pilihan 2</b></span>
+                        </label>
+                    </div>
+                </div>
+                @elseif(strcmp($mahasiswa->prodi, 'Informatika') == 0)
+                <div class="row justify-content-center prodi">
+                    <div class="col-md-6 nopad text-center mb-3 mar">
+                        <label class="prodi-radio">
+                            <img class="img-responsive" src="/img/fotocalon/calon4.png" />
+                            <input type="radio" name="calonhima" value="1" />
+                            <i class="fas fa-check-square"></i>
+                            <br><span><b>Pilihan 1</b></span>
+                        </label>
+                    </div>
+                    <div class="col-md-6 nopad text-center mb-3 mar">
+                        <label class="prodi-radio">
+                            <img class="img-responsive" src="/img/fotocalon/calon4.png" />
+                            <input type="radio" name="calonhima" value="2" />
+                            <i class="fas fa-check-square"></i>
+                            <br><span><b>Pilihan 2</b></span>
+                        </label>
+                    </div>
+                </div>
                 @endif
                 <hr>
                 <!-- <div class="card-footer"> -->
                 <div class="d-flex justify-content-between">
                     <div class="kiriFooterCard">
-                        <button type="button" class="btn btn-primary prev">Previous</button>
+                        <!-- <button type="button" class="btn btn-primary prev">Previous</button> -->
                     </div>
                     <div class="kananFooterCard">
                         <button type="button" class="btn btn-primary next">Next</button>

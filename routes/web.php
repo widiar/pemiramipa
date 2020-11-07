@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +19,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //ngetes
+
+//UPDATE CHART
 Route::get('coba', 'DashboardController@updatechart')->name('updatechart');
 
+Route::get('/belumwaktunyavoting', function () {
+    return view('belumvoting');
+});
 //login
 Route::get('/login', 'ProfileController@login')->name('login');
 Route::get('/register', 'ProfileController@register');
