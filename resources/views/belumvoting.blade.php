@@ -1,6 +1,6 @@
 @extends('masterTemplate.login')
 
-@section('title','PRESMA')
+@section('title','Pemira FMIPA')
 @section('content-header', 'Login')
 
 @section('diluarlogin')

@@ -3,7 +3,7 @@
 @section('meta')
 <!-- <meta http-equiv="refresh" content="5" /> -->
 @endsection
-@section('title','PRESMA')
+@section('title','Pemira FMIPA')
 @section('content-header', 'Data Suara BEM')
 
 @section('content')

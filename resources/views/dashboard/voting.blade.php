@@ -1,6 +1,6 @@
 @extends('masterTemplate.master')
 
-@section('title','PRESMA')
+@section('title','Pemira FMIPA')
 @if($mahasiswa->udahVoting == 0)
 @section('content')
 <div class="content">
