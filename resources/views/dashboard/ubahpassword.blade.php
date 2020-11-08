@@ -1,6 +1,6 @@
 @extends('masterTemplate.master')
 
-@section('title','PRESMA')
+@section('title','Pemira FMIPA')
 
 @section('content')
 <div class="content">
