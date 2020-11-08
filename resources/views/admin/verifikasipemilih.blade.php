@@ -17,7 +17,6 @@
                             <th>Nama</th>
                             <th>Program Studi</th>
                             <th class="text-center">KTM</th>
-                            <th class="text-center">Foto Bareng</th>
                             <th class="text-center">Aksi</th>
                             <th class="text-center">Waktu Voting</th>
                         </tr>
@@ -33,11 +32,6 @@
                             <td>{{$siswa['mahasiswa']['prodi']}}</td>
                             <td class="text-center">
                                 <a href="/verifikasipemilih/{{$siswa['nim']}}" class="liatKtm">
-                                    <button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></button>
-                                </a>
-                            </td>
-                            <td class="text-center">
-                                <a href="/verifikasifotobareng/{{$siswa['nim']}}" class="liatfotbar">
                                     <button class="btn btn-sm btn-primary"><i class="fa fa-eye"></i></button>
                                 </a>
                             </td>
@@ -79,10 +73,10 @@
         </div>
 
         <div class="modal fade" id="ktm" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Bukti KTM</h5>
+                        <h5 class="modal-title">Bukti</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

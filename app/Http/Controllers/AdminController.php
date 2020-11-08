@@ -34,34 +34,18 @@ class AdminController extends Controller
         // return $data->nama;
         $string = [];
         if ($data) {
-            $string[0] = '<img src="/img/ktm/' . $data->ktm . '" alt="" width="80%">';
-            if ($data->user->verif == '0') {
-                $string[1] = '
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <form action="/verifikasipemilih/' . $id . '" method="post" class="konfirm">
-                    <input type="hidden" name="_method" value="patch">
-                    <input type="hidden" name="_token" value="' . csrf_token() . '">
-                    <button onclick="bukti()" type="submit" class="btn btn-primary">Konfirmasi</button>
-                </form>';
-            } else {
-                $string[1] = '
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <form action="/verifktm/' . $id . '" method="post" class="konfirm">
-                    <input type="hidden" name="_method" value="patch">
-                    <input type="hidden" name="_token" value="' . csrf_token() . '">
-                    <button onclick="bukti()" type="submit" class="btn btn-danger">Batal Konfirmasi</button>
-                </form>';
-            }
-            return json_encode($string);
-        }
-    }
-    public function fotobareng($id)
-    {
-        $data = Mahasiswa::find($id);
-        // return $data->nama;
-        $string = [];
-        if ($data) {
-            $string[0] = '<img src="/img/fotbar/' . $data->fotbar . '" alt="" width="80%">';
+            $string[0] = '
+            <div class="row">
+                <div class="col">
+                    <h3>Bukti KTM </h3>
+                    <img src="/img/ktm/' . $data->ktm . '" alt="" width="100%">
+                </div>
+                <div class="col">
+                    <h3>Bukti Foto Bareng </h3>
+                    <img src="/img/fotbar/' . $data->fotbar . '" alt="" width="100%">
+                </div>
+            </div>
+            ';
             if ($data->user->verif == '0') {
                 $string[1] = '
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

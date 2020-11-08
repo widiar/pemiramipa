@@ -64,7 +64,6 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => ['auth', 'cekrole']], function () {
     Route::get('/verifikasipemilih', 'AdminController@verifpemilih');
     Route::get('/verifikasipemilih/{mahasiswa}', 'AdminController@ktmpemilih');
-    Route::get('/verifikasifotobareng/{mahasiswa}', 'AdminController@fotobareng');
     Route::patch('/verifikasipemilih/{mahasiswa}', 'AdminController@ktmverif');
     Route::patch('/verifktm/{mahasiswa}', 'AdminController@ktmgajadiverif');
     Route::delete('/verifikasipemilih/{mahasiswa}', 'AdminController@hapuspemilih');
