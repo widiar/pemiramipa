@@ -1,7 +1,7 @@
 @component('mail::message')
 # Silahkan Login
 
-Anda telah di verifikasi dengan NIM
+<div> Anda telah di verifikasi dengan NIM {{$nim}} </div>
 Silahkan klik tombol Login untuk melakukan pemilihan
 @php
 $url = config('app.url') . 'login'

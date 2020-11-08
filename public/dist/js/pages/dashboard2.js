@@ -1,7 +1,9 @@
 $(document).ready(function () {
-    $(".prev").hide();
-    $(".prodi").hide();
-    var klik = 0;
+    // $(".prev").hide();
+    if($(".lagimilih").val() == 0){
+        $(".prodi").hide();
+    }
+    // var klik = 0;
     $(".next").click(function () {
         if ($('input[name="calonbem"]:checked').length == 1) { //jika sudah di pilih
             Swal.fire({
@@ -15,15 +17,42 @@ $(document).ready(function () {
                     confirmButtonText: "Yap!",
                 }).then((result) => {
                     if(result.value){
-                        $(".bem").hide(300);
-                        $(".prodi").show(300);
-                        $(".prev").show(300);
-                        $(this).removeAttr("type").attr("type", "submit");
-                        $(this).html("Submit");
-                        if (klik < 2) klik++;
+                        $.ajax({
+                            type: $(".masukoke").attr("method"),
+                            url: $(".masukoke").attr("action"),
+                            data: $(".masukoke").serialize(),
+                            success: function (msg) {
+                                console.log(msg);
+                                if (msg == "Sukses") {
+                                    Swal.fire(
+                                        "Berhasil!",
+                                        "Anda telah berhasil memilih BEM!",
+                                        "success"
+                                    ).then((result) => {
+                                        if (result.value) {
+                                            window.location.href = $(
+                                                location
+                                            ).attr("href");
+                                        }
+                                    });
+                                } else {
+                                    Swal.fire(
+                                        "Gagal",
+                                        "Terjadi kesalahan",
+                                        "error"
+                                    );
+                                }
+                            },
+                        });
+                        // $(".bem").hide(300);
+                        // $(".prodi").show(300);
+                        // $(".prev").show(300);
+                        // $(this).removeAttr("type").attr("type", "submit");
+                        // $(this).html("Submit");
+                        // if (klik < 2) klik++;
                     }
                 })
-        } else {
+        } else if($(".lagimilih").val() == 0){
             toastr.options.closeButton = true;
             toastr.options.progressBar = true;
             toastr.options.closeDuration = 100;
@@ -33,14 +62,14 @@ $(document).ready(function () {
             );
         }
     });
-    $(".prev").click(function () {
-        $(".prodi").hide(300);
-        $(".bem").show(300);
-        $(this).hide();
-        $(".next").removeAttr("type").attr("type", "button");
-        $(".next").html("Next");
-        klik = 0;
-    });
+    // $(".prev").click(function () {
+    //     $(".prodi").hide(300);
+    //     $(".bem").show(300);
+    //     $(this).hide();
+    //     $(".next").removeAttr("type").attr("type", "button");
+    //     $(".next").html("Next");
+    //     klik = 0;
+    // });
     $(".masukoke").submit(function (e) {
         e.preventDefault();
         // if (klik == 2) {
@@ -65,7 +94,7 @@ $(document).ready(function () {
                                 if (msg == "Sukses") {
                                     Swal.fire(
                                         "Berhasil!",
-                                        "Anda telah berhasil memilih!",
+                                        "Anda telah berhasil memilih HIMA!",
                                         "success"
                                     ).then((result) => {
                                         if (result.value) {

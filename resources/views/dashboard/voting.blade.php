@@ -1,19 +1,17 @@
 @extends('masterTemplate.master')
 
 @section('title','Pemira FMIPA')
-@if($mahasiswa->udahVoting == 0)
+@if($mahasiswa->udahVoting == 0 || $mahasiswa->udahvotinghima == 0)
 @section('content')
 <div class="content">
     <div class="container-fluid">
         <div class="card shadow p-4 mx-auto w-75">
-            <div class="card-header text-center bem">
-                <h3>Voting Calon BEM FMIPA</h3>
-            </div>
-            <div class="card-header text-center prodi">
-                <h3>Voting Calon HIMA</h3>
-            </div>
             <form action="/masuksuara" method="post" class="masukoke">
                 @csrf
+                @if($mahasiswa->udahVoting == 0)
+                <div class="card-header text-center bem">
+                    <h3>Voting Calon BEM FMIPA</h3>
+                </div>
                 <div class="row justify-content-center bem">
                     <div class="col-md-6 nopad text-center mb-3 mar">
                         <label class="bem-radio">
@@ -32,7 +30,12 @@
                         </label>
                     </div>
                 </div>
+                @endif
+                @if($mahasiswa->udahvotinghima == 0)
                 @if(strcmp($mahasiswa->prodi, 'Fisika') == 0)
+                <div class="card-header text-center prodi">
+                    <h3>Voting Calon HIMA Fisika</h3>
+                </div>
                 <div class="row justify-content-center prodi">
                     <div class="col-md-6 nopad text-center mb-3 mar">
                         <label class="prodi-radio">
@@ -52,6 +55,9 @@
                     </div>
                 </div>
                 @elseif(strcmp($mahasiswa->prodi, 'Kimia') == 0)
+                <div class="card-header text-center prodi">
+                    <h3>Voting Calon HIMA Kimia</h3>
+                </div>
                 <div class="row justify-content-center prodi">
                     <div class="col-md-6 nopad text-center mb-3 mar">
                         <label class="prodi-radio">
@@ -71,6 +77,9 @@
                     </div>
                 </div>
                 @elseif(strcmp($mahasiswa->prodi, 'Matematika') == 0)
+                <div class="card-header text-center prodi">
+                    <h3>Voting Calon HIMA Matematika</h3>
+                </div>
                 <div class="row justify-content-center prodi">
                     <div class="col-md-6 nopad text-center mb-3 mar">
                         <label class="prodi-radio">
@@ -90,6 +99,9 @@
                     </div>
                 </div>
                 @elseif(strcmp($mahasiswa->prodi, 'Biologi') == 0)
+                <div class="card-header text-center prodi">
+                    <h3>Voting Calon HIMA Biologi</h3>
+                </div>
                 <div class="row justify-content-center prodi">
                     <div class="col-md-6 nopad text-center mb-3 mar">
                         <label class="prodi-radio">
@@ -109,6 +121,9 @@
                     </div>
                 </div>
                 @elseif(strcmp($mahasiswa->prodi, 'Farmasi') == 0)
+                <div class="card-header text-center prodi">
+                    <h3>Voting Calon HIMA Farmasi</h3>
+                </div>
                 <div class="row justify-content-center prodi">
                     <div class="col-md-6 nopad text-center mb-3 mar">
                         <label class="prodi-radio">
@@ -128,6 +143,9 @@
                     </div>
                 </div>
                 @elseif(strcmp($mahasiswa->prodi, 'Informatika') == 0)
+                <div class="card-header text-center prodi">
+                    <h3>Voting Calon HIMA Informatika</h3>
+                </div>
                 <div class="row justify-content-center prodi">
                     <div class="col-md-6 nopad text-center mb-3 mar">
                         <label class="prodi-radio">
@@ -147,14 +165,16 @@
                     </div>
                 </div>
                 @endif
+                @endif
                 <hr>
                 <!-- <div class="card-footer"> -->
+                <input type="hidden" name="lagimilih" class="lagimilih" value="{{$mahasiswa->udahVoting == 0 ? 0 : 1}}">
                 <div class="d-flex justify-content-between">
                     <div class="kiriFooterCard">
                         <!-- <button type="button" class="btn btn-primary prev">Previous</button> -->
                     </div>
                     <div class="kananFooterCard">
-                        <button type="button" class="btn btn-primary next">Next</button>
+                        <button type="{{$mahasiswa->udahVoting == 0 ? 'button' : 'submit'}}" class="btn btn-primary next">Pilih</button>
                     </div>
                 </div>
             </form>

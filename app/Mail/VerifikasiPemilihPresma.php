@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Auth;
 
 class VerifikasiPemilihPresma extends Mailable
 {
@@ -16,9 +17,10 @@ class VerifikasiPemilihPresma extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $nim;
+    public function __construct($nim)
     {
-        //
+        $this->nim = $nim;
     }
 
     /**

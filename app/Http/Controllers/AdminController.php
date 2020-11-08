@@ -70,7 +70,7 @@ class AdminController extends Controller
     {
         User::where('nim', $mahasiswa->nim)->update(['verif' => 1]);
         $user = User::where('nim', $mahasiswa->nim)->first();
-        Mail::to($user->email)->send(new VerifikasiPemilihPresma);
+        Mail::to($user->email)->send(new VerifikasiPemilihPresma($mahasiswa->nim));
         return "Sukses";
     }
     public function ktmgajadiverif($nim)
