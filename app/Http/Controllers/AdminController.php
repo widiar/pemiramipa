@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mahasiswa;
 use App\Mail\VerifikasiPemilihPresma;
 use App\User;
+use App\Voting;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Mail;
@@ -90,5 +91,21 @@ class AdminController extends Controller
     public function superadmin()
     {
         return view('admin.superadmin');
+    }
+    public function mulai()
+    {
+        $vote = Voting::first();
+        return view('admin.mulaiajadah', compact('vote'));
+    }
+    public function mulaiupdate(Request $request)
+    {
+        // dd($request->all());
+        if (isset($request->mulai)) {
+            Voting::where('id', 1)->update(['waktuVote' => 1]);
+            return redirect('/mulai');
+        } else {
+            Voting::where('id', 1)->update(['waktuVote' => 0]);
+            return redirect('/mulai');
+        }
     }
 }

@@ -69,4 +69,6 @@ Route::group(['middleware' => ['auth', 'cekrole']], function () {
     Route::delete('/verifikasipemilih/{mahasiswa}', 'AdminController@hapuspemilih');
     Route::post('/waktumilih/{mahasiswa}', 'AdminController@ubahwaktu');
     Route::get('/superadmin', 'AdminController@superadmin');
+    Route::get('/mulai', 'AdminController@mulai');
+    Route::post('/mulai', 'AdminController@mulaiupdate');
 });

@@ -1,6 +1,6 @@
 @extends('masterTemplate.master')
 
-@section('title','PRESMA')
+@section('title','PRESMA'))
 @if($mahasiswa->udahVoting == 0)
 @section('content')
 <div class="content">
@@ -131,7 +131,7 @@
                 <div class="row justify-content-center prodi">
                     <div class="col-md-6 nopad text-center mb-3 mar">
                         <label class="prodi-radio">
-                            <img class="img-responsive" src="/img/fotocalon/calon4.png" />
+                            <img class="img-responsive" src="/img/fotocalon/calon2.png" />
                             <input type="radio" name="calonhima" value="1" />
                             <i class="fas fa-check-square"></i>
                             <br><span><b>Pilihan 1</b></span>

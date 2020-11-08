@@ -32,7 +32,6 @@ $(document).ready(function () {
                 "JANGAN GOLPUT!"
             );
         }
-        console.log(klik);
     });
     $(".prev").click(function () {
         $(".prodi").hide(300);
@@ -44,7 +43,7 @@ $(document).ready(function () {
     });
     $(".masukoke").submit(function (e) {
         e.preventDefault();
-        if (klik == 2) {
+        // if (klik == 2) {
             if ($('input[name="calonhima"]:checked').length == 1) {
                 Swal.fire({
                     title: "Anda Yakin?",
@@ -62,6 +61,7 @@ $(document).ready(function () {
                             url: $(this).attr("action"),
                             data: $(this).serialize(),
                             success: function (msg) {
+                                // console.log(msg);
                                 if (msg == "Sukses") {
                                     Swal.fire(
                                         "Berhasil!",
@@ -94,7 +94,7 @@ $(document).ready(function () {
                     "JANGAN GOLPUT DONG!"
                 );
             }
-        }
+        // }
     });
     $(".logout").click(function (e) {
         e.preventDefault();

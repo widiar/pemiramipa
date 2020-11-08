@@ -7,6 +7,7 @@ use App\Mahasiswa;
 use App\Mail\ResetPassword;
 use App\TokenUser;
 use App\User;
+use App\Voting;
 use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -93,8 +94,8 @@ class ProfileController extends Controller
         // } else {
         //     return "Gagal";
         // }
-        $waktu1 = new DateTime("2020-10-29 13:00:00");
-        $waktu2 = new DateTime("2020-10-29 14:00:00");
+        // $waktu1 = new DateTime("2020-10-29 13:00:00");
+        // $waktu2 = new DateTime("2020-10-29 14:00:00");
         //ini untuk nentuin waktu login
         // if ($data->mahasiswa->waktuVoting == 1) {
         //     if (new DateTime() < $waktu1) {
@@ -105,11 +106,11 @@ class ProfileController extends Controller
         //     if (new DateTime() < $waktu2)
         //         return redirect('/login')->with('status', 'Anda belum waktunya LOGIN')->withInput();
 
-        //untuk waktu login cara 1
-        $waktunya = new DateTime("2020-11-06 08:00:00");
-        if (new DateTime() < $waktunya && $data->role == 0) {
+        //untuk waktu login tombol admin
+        $vote = Voting::first();
+        $waktu = $vote->waktuVote;
+        if ($waktu == 0 && $data->role == 0)
             return redirect('/belumwaktunyavoting');
-        }
 
         //cara laravel
         $cr = [
