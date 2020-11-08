@@ -27,9 +27,9 @@ Route::get('/belumwaktunyavoting', function () {
     return view('belumvoting');
 });
 //login
-Route::get('/login', 'ProfileController@login')->name('login');
-Route::get('/register', 'ProfileController@register');
-Route::post('/login', 'ProfileController@daftar');
+// Route::get('/login', 'ProfileController@login')->name('login');
+Route::get('/register', 'ProfileController@register')->name('login');
+Route::post('/register', 'ProfileController@daftar');
 Route::post('/', 'ProfileController@masuk');
 Route::get('/logout', 'ProfileController@logout');
 Route::get('/lupapassword', function () {
@@ -64,6 +64,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => ['auth', 'cekrole']], function () {
     Route::get('/verifikasipemilih', 'AdminController@verifpemilih');
     Route::get('/verifikasipemilih/{mahasiswa}', 'AdminController@ktmpemilih');
+    Route::get('/verifikasifotobareng/{mahasiswa}', 'AdminController@fotobareng');
     Route::patch('/verifikasipemilih/{mahasiswa}', 'AdminController@ktmverif');
     Route::patch('/verifktm/{mahasiswa}', 'AdminController@ktmgajadiverif');
     Route::delete('/verifikasipemilih/{mahasiswa}', 'AdminController@hapuspemilih');

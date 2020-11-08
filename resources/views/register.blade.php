@@ -12,7 +12,7 @@
             {{ session('status') }}
         </div>
         @endif
-        <form action="/login" method="post" enctype="multipart/form-data" id="iniformregister">
+        <form action="/register" method="post" enctype="multipart/form-data" id="iniformregister">
             @csrf
             <div class="form-group mb-3">
                 <label for="">Nama Lengkap</label>
@@ -128,13 +128,26 @@
                 <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
+            <div class="form-group">
+                <label for="">Foto Bareng KTM/KRM/UKT</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input @error('fotbar') is-invalid @enderror" id="fotbar" name="fotbar">
+                        <label class="custom-file-label" for="fotbar">Pilih File</label>
+                    </div>
+                </div>
+                <small class="text-info">*Batas file sebesar 3mb</small><br>
+                @error('fotbar')
+                <small class="text-danger">{{ $message }}</small>
+                @enderror
+            </div>
             <hr>
             <input type="hidden" name="response" class="resp" value="">
             <button type="submit" class="btn btn-primary btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button>
         </form>
-        <div class="mt-2 text-center">
+        <!-- <div class="mt-2 text-center">
             <a href="login">Sudah punya akun silahkan Login</a>
-        </div>
+        </div> -->
     </div>
     <!-- /.form-box -->
 </div><!-- /.card -->

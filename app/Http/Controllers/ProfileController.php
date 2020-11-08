@@ -32,10 +32,12 @@ class ProfileController extends Controller
             'nim' => 'required|size:10|unique:mahasiswa',
             'password' => 'required|same:password2|min:8',
             'ktm' => 'required|image|mimes:png,jpeg|max:3072',
+            'fotbar' => 'required|image|mimes:png,jpeg|max:3072',
             'prodi' => 'required',
             'email' => 'email|required|unique:users',
         ];
         $messages = [
+            'fotbar.required' => 'Tolong foto bareng di isi',
             'required' => 'Tolong :attribute di isi',
             'nim.size' => 'NIM haruslah 10 digit',
             'password.same' => 'Password haruslah sama',
@@ -52,12 +54,15 @@ class ProfileController extends Controller
             return redirect('/register')->with('status', 'Anda Robot :)');
         }
         $namaktm = uniqid() . '.' . $request->ktm->extension();
+        $namafotbar = uniqid() . '.' . $request->fotbar->extension();
+        // dd($namafotbar);
         $password = Hash::make($request->password);
         $data = [
             'nama' => $request->nama,
             'nim' => $request->nim,
             'prodi' => $request->prodi,
             'ktm' => $namaktm,
+            'fotbar' => $namafotbar,
         ];
         $user = [
             'nim' => $request->nim,
@@ -67,6 +72,7 @@ class ProfileController extends Controller
         User::create($user);
         Mahasiswa::create($data);
         $request->ktm->storeAs('ktm', $namaktm, 'upi');
+        $request->fotbar->storeAs('fotbar', $namafotbar, 'upi');
         return redirect('/register')->with('status', 'Anda berhasil Mendaftar');
     }
     public function masuk(Request $request)

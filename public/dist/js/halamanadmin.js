@@ -23,6 +23,18 @@ $(document).ready(function () {
         });
         $("#ktm").modal("show");
     });
+    $(".liatfotbar").click(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr("href"),
+            dataType: "json",
+            success: function (ntap) {
+                $(".ktmmodal").html(ntap[0]);
+                $(".ktmmodalfooter").html(ntap[1]);
+            },
+        });
+        $("#ktm").modal("show");
+    });
     $(".hapusPemilih").submit(function (e) {
         e.preventDefault();
         Swal.fire({
