@@ -8,6 +8,9 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('dist/desain-web/logo-pemira.png') }}">
+    
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
@@ -17,20 +20,23 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.css')}}">
     <link rel="stylesheet" href="{{ asset('dist/css/dashboard.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/css/register-style.css') }}">
+
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <!-- Google ReChapta -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 
-<body class="hold-transition login-page">
-    <div class="login-box">
+<body class="">
+    {{-- <div class="login-box">
         <div class="login-logo">
             <b>@yield('login-text')</b>
-        </div>
+        </div> --}}
         <!-- /.login-logo -->
         @yield('content')
-    </div>
+    {{-- </div> --}}
     @yield('diluarlogin')
     <!-- /.login-box -->
 
