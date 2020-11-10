@@ -23,7 +23,7 @@
                          </p>
                      </a>
                  </li>
-                 @if(auth()->user()->role==0 || auth()->user()->role==1)
+                 @if(auth()->user()->role==0)
                  <li class="nav-item">
                      <a href="/voting" class="nav-link{{request()->is('voting') ? ' active' : '' }}">
                          <i class="nav-icon fas fa-vote-yea"></i>

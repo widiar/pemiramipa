@@ -25,14 +25,22 @@ class ProfileController extends Controller
     {
         return view('register');
     }
+
+    private function compressImage($src, $dst, $q)
+    {
+        $info = getimagesize($src);
+        if ($info['mime'] == 'image/jpeg') $image = imagecreatefromjpeg($src);
+        elseif ($info['mime'] == 'image/png') $image = imagecreatefrompng($src);
+        imagejpeg($image, $dst, $q);
+    }
     public function daftar(Request $request)
     {
         $rules = [
             'nama' => 'required',
             'nim' => 'required|size:10|unique:mahasiswa',
             'password' => 'required|same:password2|min:8',
-            'ktm' => 'required|image|mimes:png,jpeg|max:3072',
-            'fotbar' => 'required|image|mimes:png,jpeg|max:3072',
+            'ktm' => 'required|image|mimes:png,jpeg|max:1024',
+            'fotbar' => 'required|image|mimes:png,jpeg|max:5120',
             'prodi' => 'required',
             'email' => 'email|required|unique:users',
         ];
@@ -55,7 +63,9 @@ class ProfileController extends Controller
         }
         $namaktm = uniqid() . '.' . $request->ktm->extension();
         $namafotbar = uniqid() . '.' . $request->fotbar->extension();
-        // dd($namafotbar);
+        // dd($_FILES['ktm']);
+        $tmpktm = $_FILES['ktm']['tmp_name'];
+        $tmpfotber = $_FILES['fotbar']['tmp_name'];
         $password = Hash::make($request->password);
         $data = [
             'nama' => $request->nama,
@@ -71,8 +81,10 @@ class ProfileController extends Controller
         ];
         User::create($user);
         Mahasiswa::create($data);
-        $request->ktm->storeAs('ktm', $namaktm, 'upi');
-        $request->fotbar->storeAs('fotbar', $namafotbar, 'upi');
+        $this->compressImage($tmpktm, 'img/ktm/' . $namaktm, 50);
+        $this->compressImage($tmpfotber, 'img/fotbar/' . $namafotbar, 50);
+        // $request->ktm->storeAs('ktm', $namaktm, 'upi');
+        // $request->fotbar->storeAs('fotbar', $namafotbar, 'upi');
         return redirect('/register')->with('status', 'Anda berhasil Mendaftar');
     }
     public function masuk(Request $request)
@@ -115,7 +127,7 @@ class ProfileController extends Controller
         //untuk waktu login tombol admin
         $vote = Voting::first();
         $waktu = $vote->waktuVote;
-        if ($waktu == 0 && $data->role == 0)
+        if ($data && $waktu == 0 && $data->role == 0)
             return redirect('/belumwaktunyavoting');
 
         //cara laravel

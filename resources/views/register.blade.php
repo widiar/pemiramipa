@@ -146,7 +146,7 @@
                                 <label class="custom-file-label" for="ktm">Pilih File</label>
                             </div>
                         </div>
-                        <small class="text-info">*Batas file sebesar 3mb</small><br>
+                        <small class="text-info">*Batas file sebesar 1mb</small><br>
                         @error('ktm')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -159,7 +159,7 @@
                                 <label class="custom-file-label" for="fotbar">Pilih File</label>
                             </div>
                         </div>
-                        <small class="text-info">*Batas file sebesar 3mb</small><br>
+                        <small class="text-info">*Batas file sebesar 5mb</small><br>
                         @error('fotbar')
                         <small class="text-danger">{{ $message }}</small>
                         @enderror

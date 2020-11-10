@@ -242,6 +242,12 @@
 @section('script')
 <script>
     $(document).ready(function() {
+        // window.onbeforeunload = function(e) {
+        //     return 'Please press the Logout button to logout.';
+        // };
+        window.onunload = function() {
+            alert('messag');
+        };
         // add/remove checked class
         $(".bem-radio").each(function() {
             if ($(this).find('input[type="radio"]').first().attr("checked")) {
