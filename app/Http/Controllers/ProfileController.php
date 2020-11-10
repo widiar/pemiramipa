@@ -25,6 +25,14 @@ class ProfileController extends Controller
     {
         return view('register');
     }
+
+    private function compressImage($src, $dst, $q)
+    {
+        $info = getimagesize($src);
+        if ($info['mime'] == 'image/jpeg') $image = imagecreatefromjpeg($src);
+        elseif ($info['mime'] == 'image/png') $image = imagecreatefrompng($src);
+        imagejpeg($image, $dst, $q);
+    }
     public function daftar(Request $request)
     {
         $rules = [
@@ -55,7 +63,9 @@ class ProfileController extends Controller
         }
         $namaktm = uniqid() . '.' . $request->ktm->extension();
         $namafotbar = uniqid() . '.' . $request->fotbar->extension();
-        // dd($namafotbar);
+        // dd($_FILES['ktm']);
+        $tmpktm = $_FILES['ktm']['tmp_name'];
+        $tmpfotber = $_FILES['fotbar']['tmp_name'];
         $password = Hash::make($request->password);
         $data = [
             'nama' => $request->nama,
@@ -71,8 +81,10 @@ class ProfileController extends Controller
         ];
         User::create($user);
         Mahasiswa::create($data);
-        $request->ktm->storeAs('ktm', $namaktm, 'upi');
-        $request->fotbar->storeAs('fotbar', $namafotbar, 'upi');
+        $this->compressImage($tmpktm, 'img/ktm/' . $namaktm, 50);
+        $this->compressImage($tmpfotber, 'img/fotbar/' . $namafotbar, 50);
+        // $request->ktm->storeAs('ktm', $namaktm, 'upi');
+        // $request->fotbar->storeAs('fotbar', $namafotbar, 'upi');
         return redirect('/register')->with('status', 'Anda berhasil Mendaftar');
     }
     public function masuk(Request $request)
