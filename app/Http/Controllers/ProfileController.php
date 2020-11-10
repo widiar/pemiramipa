@@ -31,8 +31,8 @@ class ProfileController extends Controller
             'nama' => 'required',
             'nim' => 'required|size:10|unique:mahasiswa',
             'password' => 'required|same:password2|min:8',
-            'ktm' => 'required|image|mimes:png,jpeg|max:3072',
-            'fotbar' => 'required|image|mimes:png,jpeg|max:3072',
+            'ktm' => 'required|image|mimes:png,jpeg|max:1024',
+            'fotbar' => 'required|image|mimes:png,jpeg|max:5120',
             'prodi' => 'required',
             'email' => 'email|required|unique:users',
         ];
@@ -115,7 +115,7 @@ class ProfileController extends Controller
         //untuk waktu login tombol admin
         $vote = Voting::first();
         $waktu = $vote->waktuVote;
-        if ($waktu == 0 && $data->role == 0)
+        if ($data && $waktu == 0 && $data->role == 0)
             return redirect('/belumwaktunyavoting');
 
         //cara laravel

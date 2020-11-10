@@ -27,7 +27,7 @@ Route::get('/belumwaktunyavoting', function () {
     return view('belumvoting');
 });
 //login
-// Route::get('/login', 'ProfileController@login')->name('login');
+// Route::get('/login', 'ProfileController@login')->name('login2');
 Route::get('/register', 'ProfileController@register')->name('login');
 Route::post('/register', 'ProfileController@daftar');
 Route::post('/', 'ProfileController@masuk');
