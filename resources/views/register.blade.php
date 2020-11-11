@@ -40,7 +40,7 @@
                     <div class="form-group mb-3">
                         <label for="">Nama Lengkap</label>
                         <div class="input-group">
-                            <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" value="{{ old('nama') }}">
+                            <input type="text" class="form-control @error('nama') is-invalid @enderror" id="nama" name="nama" value="{{ old('nama') }}">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -54,7 +54,7 @@
                     <div class="form-group mb-3">
                         <label for="">NIM</label>
                         <div class="input-group">
-                            <input type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" value="{{ old('nim') }}">
+                            <input type="text" class="form-control @error('nim') is-invalid @enderror" id="nim" name="nim" value="{{ old('nim') }}">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-user"></span>
@@ -68,7 +68,7 @@
                     <div class="form-group mb-3">
                         <label for="">Email</label>
                         <div class="input-group">
-                            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}">
+                            <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') }}">
                             <div class="input-group-append">
                                 <div class="input-group-text">
                                     <span class="fas fa-envelope"></span>
@@ -82,7 +82,7 @@
                     <div class="form-group mb-3">
                         <label for="">Program Studi</label>
                         <div class="input-group">
-                            <select name="prodi" class="custom-select @error('prodi') is-invalid @enderror prodi">
+                            <select id="prodi" name="prodi" class="custom-select @error('prodi') is-invalid @enderror prodi">
                                 <option selected disabled>Program Studi</option>
                                 <option value="Matematika">Matematika</option>
                                 <option value="Kimia">Kimia</option>
@@ -166,16 +166,98 @@
                     </div>
                     <hr>
                     <input type="hidden" name="response" class="resp" value="">
-                    <button type="submit" class="btn solid btn-primary btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button>
+                    {{-- <button type="submit" class="btn solid btn-primary btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button> --}}
+                    <button type="button" onclick="isiModal();" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+                        Register
+                      </button>
                 </form>
             </div>
         </div>
     
         <div class="contact-person">
-            <h3>CP :</h3>
-            <h2>Ngurah Sentana</h2>
+            <h6><strong>Contact Person :</strong></h6>
+
+            <ul>
+                <li class="orang">
+                    Bryan
+                    <ul>
+                        <li><i class="fab fa-line icon-soc-med"></i>b_r_y_a_n_7_5</li>
+                        <li><i class="fas fa-phone icon-soc-med"></i>08983642086</li>
+                    </ul>
+                </li>
+                <li class="orang">
+                    Ngurah
+                    <ul>
+                        <li><i class="fab fa-line icon-soc-med"></i>Ngurahsentana24</li>
+                        <li><i class="fas fa-phone icon-soc-med"></i>082341888941</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
 
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Form Registration</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <p class="pengingat">*pastikan data yang diinput sudah benar</p>
+                <div class="form-group mb-3">
+                    <label for="">Nama Lengkap</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="modal-nama" name="nama" value="" disabled>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">NIM</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="modal-nim" name="nim" value="" disabled>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Email</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="modal-email" name="email" value="" disabled>
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="">Program Studi</label>
+                    <div class="input-group">
+                        <select name="prodi" class="custom-select" disabled>
+                            <option selected id="modal-prodi"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-confirm">Confirm</button>
+            </div>
+        </div>
+        </div>
     </div>
 </div> 
     <!-- <div class="mt-2 text-center">
@@ -195,5 +277,19 @@
         $(".resp").val(token);
         document.getElementById("iniformregister").submit();
     }
+
+    function isiModal(){
+        var nama = document.getElementById("nama").value;
+        var nim = document.getElementById("nim").value;
+        var email = document.getElementById("email").value;
+        var prodi = document.getElementById("prodi");
+
+        document.getElementById("modal-nama").value = nama;
+        document.getElementById("modal-nim").value = nim;
+        document.getElementById("modal-email").value = email;
+
+        document.getElementById("modal-prodi").innerHTML = $("#prodi option:selected" ).text();
+    }
+    
 </script>
 @endsection
