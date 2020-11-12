@@ -234,13 +234,14 @@ form.sign-up-form {
 }
 
 .contact-person {
+  position: relative;
   background-image: linear-gradient(-45deg,#992d67 0%, #9f2761 100%);
   border-radius: 25%;
-  position: relative;
-  margin-top: 85%;
+  min-width: 300px;
+  margin-top: 40px;
   margin-bottom: 80px;
   padding: 20px 20px 20px 30px;
-  left: 75%;
+  left: 45%;
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -288,18 +289,32 @@ form.sign-up-form {
 
 
 @media (max-width: 870px) {
+
   .bulet {
     min-height: 800px;
     height: 100vh;
-    position: absolute;
-    /* width: 100%; */
+    position: fixed;
+    width: 100%;
   }
+
   .signin-signup {
     width: 100%;
-    top: 60%;
+    top: 38%;
     left: 0;
     /* transform: translate(-50%, -100%); */
     transition: 1s 0.8s ease-in-out;
+  }
+
+  .isiForm{
+    width: 90%;
+    margin: auto;
+    background-color: white;
+    border-top-left-radius: 15% 10%;
+    border-top-right-radius: 15% 10%;
+  }
+
+  .isiForm h2{
+    margin-top: 25px;
   }
 
   .panels-container {
@@ -387,6 +402,38 @@ form.sign-up-form {
     top: 5%;
     transform: translate(-50%, 0);
   }
+
+  .contact-person {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 0;
+    border-radius: 0%;
+    border-top-left-radius: 10%;
+    border-top-right-radius: 10%;
+    width: 100%;
+    background-color: red;
+    color: white;
+    text-align: center;
+  }
+
+  
+  
+  .flex-orang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: auto;
+  }
+
+  .contact-person h6{
+    margin-left: 0;
+  }
+  .contact-person .orang{
+    margin: 10px 30px ;
+  }
 }
 
 @media (max-width: 570px) {
@@ -412,5 +459,13 @@ form.sign-up-form {
   .container.sign-up-mode:before {
     bottom: 28%;
     left: 50%;
+  }
+
+  .signin-signup {
+    top: 34%;
+  }
+  .signin-signup .isiForm{
+    width: 85%;
+    margin: auto;
   }
 }
