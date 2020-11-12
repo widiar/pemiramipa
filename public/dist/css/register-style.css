@@ -143,6 +143,11 @@ form.sign-up-form {
 .btn:hover {
   background-color: #c70038;
 }
+
+.btn:active {
+  background-color: white;
+}
+
 .panels-container {
   position: absolute;
   height: 100%;
@@ -406,25 +411,23 @@ form.sign-up-form {
   .contact-person {
     position: relative;
     left: 0;
-    bottom: 0;
+    margin: auto;
+    bottom: 12%;
     margin-bottom: 0;
-    border-radius: 0%;
-    border-top-left-radius: 10%;
-    border-top-right-radius: 10%;
-    width: 100%;
+    border-radius: 25%;
+    border-top-left-radius: 10% 15%;
+    border-top-right-radius: 10% 15%;
+    width: 80%;
     background-color: red;
     color: white;
     text-align: center;
   }
 
-  
-  
   .flex-orang {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    width: 80%;
     margin: auto;
   }
 

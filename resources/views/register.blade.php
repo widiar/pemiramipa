@@ -164,7 +164,7 @@
                         </div>
                         <hr>
                         <input type="hidden" name="response" class="resp" value="">
-                        <button type="submit" class="btn solid btn-primary btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button>
+                        <button type="submit" class="btn solid btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button>
                     </form>
                 </div>
                 
