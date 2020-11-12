@@ -140,12 +140,8 @@ form.sign-up-form {
   margin-bottom: 100px;
 }
 
-.btn:hover {
+.btn .register:hover {
   background-color: #c70038;
-}
-
-.btn:active {
-  background-color: white;
 }
 
 .panels-container {
@@ -292,6 +288,12 @@ form.sign-up-form {
   background-color: #c0c0c0;
 }
 
+.ketentuan {
+  text-align: left;
+  color: #444;
+  font-weight: bold;
+  text-decoration: underline;
+}
 
 @media (max-width: 870px) {
 
@@ -300,6 +302,16 @@ form.sign-up-form {
     height: 100vh;
     position: fixed;
     width: 100%;
+  }
+
+  .title-pemira {
+    position: relative;
+    z-index: 1;
+    min-width: 120px;
+  }
+
+  .panels-container .image {
+    z-index: 0;
   }
 
   .signin-signup {
@@ -469,6 +481,8 @@ form.sign-up-form {
   }
   .signin-signup .isiForm{
     width: 85%;
+    border-top-left-radius: 15% 5%;
+    border-top-right-radius: 15% 5%;
     margin: auto;
   }
 }

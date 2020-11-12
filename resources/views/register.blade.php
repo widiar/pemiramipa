@@ -1,6 +1,6 @@
 @extends('masterTemplate.login')
 
-@section('title','Halaman Register')
+@section('title','Registrasi Pemira FMIPA')
 {{-- @section('login-text', 'Register') --}}
 
 @section('content')
@@ -43,6 +43,9 @@
                             {{ session('err') }}
                         </div>
                         @endif
+
+                        <a href="" class="ketentuan text-left">Ketentuan Mendaftar</a>
+                        
                         <div class="form-group mb-3">
                             <label for="">Nama Lengkap</label>
                             <div class="input-group">
@@ -164,7 +167,7 @@
                         </div>
                         <hr>
                         <input type="hidden" name="response" class="resp" value="">
-                        <button type="submit" class="btn solid btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button>
+                        <button type="submit" class="btn register solid btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button>
                     </form>
                 </div>
                 
