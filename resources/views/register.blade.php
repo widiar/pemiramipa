@@ -33,9 +33,14 @@
                     @csrf
                     <h2 class="tittle"><b>Sign Up</b></h2><br>
                     @if(session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
+                    <div class="alert alert-success sukses">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+                    @if(session('err'))
+                    <div class="alert alert-danger gagal">
+                        {{ session('err') }}
+                    </div>
                     @endif
                     <div class="form-group mb-3">
                         <label for="">Nama Lengkap</label>
@@ -96,14 +101,6 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- <div class="input-group mb-3">
-                        <input type="email" class="form-control" name="email" placeholder="Email">
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div> -->
                     <div class="row password-ulang">
                         <div class="col-6">
                             <div class="form-group mb-3">
@@ -166,14 +163,11 @@
                     </div>
                     <hr>
                     <input type="hidden" name="response" class="resp" value="">
-                    {{-- <button type="submit" class="btn solid btn-primary btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button> --}}
-                    <button type="button" onclick="isiModal();" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-                        Register
-                      </button>
+                    <button type="submit" class="btn solid btn-primary btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button>
                 </form>
             </div>
         </div>
-    
+
         <div class="contact-person">
             <h6><strong>Contact Person :</strong></h6>
 
@@ -201,84 +195,103 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Form Registration</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            </div>
-            <div class="modal-body">
-                <p class="pengingat">*pastikan data yang diinput sudah benar</p>
-                <div class="form-group mb-3">
-                    <label for="">Nama Lengkap</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="modal-nama" name="nama" value="" disabled>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Form Registration</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="pengingat">*pastikan data yang diinput sudah benar</p>
+                    <div class="form-group mb-3">
+                        <label for="">Nama Lengkap</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="modal-nama" vvalue="" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="">NIM</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="modal-nim" name="nim" value="" disabled>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-user"></span>
+                    <div class="form-group mb-3">
+                        <label for="">NIM</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="modal-nim" value="" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-user"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="">Email</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="modal-email" name="email" value="" disabled>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
+                    <div class="form-group mb-3">
+                        <label for="">Email</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="modal-email" v value="" disabled>
+                            <div class="input-group-append">
+                                <div class="input-group-text">
+                                    <span class="fas fa-envelope"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label for="">Program Studi</label>
-                    <div class="input-group">
-                        <select name="prodi" class="custom-select" disabled>
-                            <option selected id="modal-prodi"></option>
-                        </select>
+                    <div class="form-group mb-3">
+                        <label for="">Program Studi</label>
+                        <div class="input-group">
+                            <select class="custom-select" disabled>
+                                <option selected id="modal-prodi"></option>
+                            </select>
+                        </div>
                     </div>
                 </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-confirm konfirm">Confirm</button>
+                </div>
             </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-cancel" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-confirm">Confirm</button>
-            </div>
-        </div>
         </div>
     </div>
-</div> 
-    <!-- <div class="mt-2 text-center">
-        <a href="login">Sudah punya akun silahkan Login</a>
-    </div> -->
+</div>
 @endsection
 
 @section('javascripttambahan')
 <script>
     $(document).ready(function() {
         var prodi = "{{old('prodi')}}";
-        if (prodi !== '')
+        if (prodi !== '') {
             $(".prodi").val(prodi).change();
+        }
+        $(".sukses").each(function() {
+            Swal.fire(
+                "Berhasil!",
+                "Anda telah berhasil Mendaftar",
+                "success"
+            )
+        });
+        $(".gagal").each(function() {
+            console.log($(".gagal").html());
+            Swal.fire(
+                "Gagal!",
+                $(".gagal").html(),
+                "error"
+            )
+        });
+        $(".konfirm").click(function() {
+            $("#iniformregister").submit();
+        })
     });
 
     function onSubmit(token) {
+        // console.log(token);
         $(".resp").val(token);
-        document.getElementById("iniformregister").submit();
+        // $("#iniformregister").submit();
+        isiModal();
+        $("#exampleModalLong").modal();
     }
 
-    function isiModal(){
+    function isiModal() {
         var nama = document.getElementById("nama").value;
         var nim = document.getElementById("nim").value;
         var email = document.getElementById("email").value;
@@ -288,8 +301,7 @@
         document.getElementById("modal-nim").value = nim;
         document.getElementById("modal-email").value = email;
 
-        document.getElementById("modal-prodi").innerHTML = $("#prodi option:selected" ).text();
+        document.getElementById("modal-prodi").innerHTML = $("#prodi option:selected").text();
     }
-    
 </script>
 @endsection

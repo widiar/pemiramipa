@@ -10,7 +10,7 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('dist/desain-web/logo-pemira.png') }}">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
@@ -18,11 +18,11 @@
     <!-- icheck bootstrap -->
     <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{{asset('dist/css/adminlte.css')}}">
+    <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css')}}">
     <link rel="stylesheet" href="{{ asset('dist/css/dashboard.css') }}">
     <link rel="stylesheet" href="{{ asset('dist/css/register-style.css') }}">
 
-    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script> -->
     <!-- Google ReChapta -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <!-- Google Font: Source Sans Pro -->
@@ -34,8 +34,8 @@
         <div class="login-logo">
             <b>@yield('login-text')</b>
         </div> --}}
-        <!-- /.login-logo -->
-        @yield('content')
+    <!-- /.login-logo -->
+    @yield('content')
     {{-- </div> --}}
     @yield('diluarlogin')
     <!-- /.login-box -->
@@ -46,6 +46,8 @@
     <script src="{{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <!-- AdminLTE App -->
     <script src="{{asset('dist/js/adminlte.min.js')}}"></script>
+    <!-- Sweet Alert -->
+    <script src="{{ asset('dist/js/sweetalert2.all.js') }}"></script>
     <script src="{{asset('dist/js/bs-custom-file-input.js')}}"></script>
     <!-- countdown js -->
     <script src="{{ asset('dist/js/countdown.js') }}"></script>

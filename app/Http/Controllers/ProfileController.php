@@ -35,6 +35,7 @@ class ProfileController extends Controller
     }
     public function daftar(Request $request)
     {
+        // return redirect('/register')->with('err', 'Anda berhasil Mendaftar');
         $rules = [
             'nama' => 'required',
             'nim' => 'required|size:10|unique:mahasiswa',
@@ -59,7 +60,7 @@ class ProfileController extends Controller
         $get = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=" . env('SECRET_KEY') . "&response=" . $request->response);
         $rechapta = json_decode($get);
         if ($rechapta->success == false) {
-            return redirect('/register')->with('status', 'Anda Robot :)');
+            return redirect('/register')->with('err', 'Anda Robot. Jangan gunakan bot untuk daftar');
         }
         $namaktm = uniqid() . '.' . $request->ktm->extension();
         $namafotbar = uniqid() . '.' . $request->fotbar->extension();
@@ -79,13 +80,17 @@ class ProfileController extends Controller
             'password' => $password,
             'email' => $request->email,
         ];
-        User::create($user);
-        Mahasiswa::create($data);
+        $u = User::create($user);
+        $m = Mahasiswa::create($data);
         $this->compressImage($tmpktm, 'img/ktm/' . $namaktm, 50);
         $this->compressImage($tmpfotber, 'img/fotbar/' . $namafotbar, 50);
         // $request->ktm->storeAs('ktm', $namaktm, 'upi');
         // $request->fotbar->storeAs('fotbar', $namafotbar, 'upi');
-        return redirect('/register')->with('status', 'Anda berhasil Mendaftar');
+        if ($u && $m) {
+            return redirect('/register')->with('status', 'Anda berhasil Mendaftar');
+        } else {
+            return redirect('/register')->with('err', 'Terjadi kesalahan. Silahkan Hubungi Panitia');
+        }
     }
     public function masuk(Request $request)
     {
