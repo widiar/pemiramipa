@@ -44,7 +44,7 @@
                         </div>
                         @endif
 
-                        <a href="" class="ketentuan text-left">Ketentuan Mendaftar</a>
+                        <a target="_blank" href="{{ asset('dist/ketentuan/Prosedur Pemira FMIPA.pdf') }}" download class="ketentuan text-left">Ketentuan Mendaftar</a>
                         
                         <div class="form-group mb-3">
                             <label for="">Nama Lengkap</label>
