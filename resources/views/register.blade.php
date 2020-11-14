@@ -12,7 +12,7 @@
         <div class="panel left-panel">
             <div class="content">
                 <div class="round-circle">
-                    <img src="{{ asset('dist/desain-web/logo-bpm.png') }}" alt="logo bpm" height="100%" class="logo-title">
+                    <img src="{{ asset('dist/desain-web/logobpm.png') }}" alt="logo bpm" height="100%" class="logo-title">
                 </div>
                 <div class="title-pemira">
                     <h3>Pemilu Raya FMIPA</h3>
