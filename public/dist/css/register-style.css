@@ -66,6 +66,11 @@ form.sign-up-form {
   z-index: 1;
 }
 
+.password {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .round-circle {
     border-radius: 50%;
     height:70px;
@@ -203,8 +208,8 @@ form.sign-up-form {
 }
 
 .content .title-pemira{
-    padding-left: 8px;
-    padding-top: 12px;
+    padding: 20px 8px;
+    text-align: center;
 }
 
 .panel h3 {
@@ -289,7 +294,8 @@ form.sign-up-form {
 }
 
 .ketentuan {
-  text-align: left;
+  text-align: left !important;
+  margin-bottom: 5px;
   color: #444;
   font-weight: bold;
   text-decoration: underline;
@@ -307,7 +313,11 @@ form.sign-up-form {
   .title-pemira {
     position: relative;
     z-index: 1;
-    min-width: 120px;
+    min-width: 120px; 
+  }
+  
+  .content .title-pemira {
+    padding-top: 11px;
   }
 
   .panels-container .image {
@@ -334,6 +344,7 @@ form.sign-up-form {
     margin-top: 25px;
   }
 
+
   .panels-container {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 2fr 1fr;
@@ -354,6 +365,10 @@ form.sign-up-form {
 
   .left-panel {
     grid-row: 1 / 2;
+  }
+
+  .left-panel .content{
+    margin: auto;
   }
 
   .image {
@@ -459,6 +474,11 @@ form.sign-up-form {
   .image {
     display: none;
   }
+
+  .content .title-pemira {
+    padding-top: 20px;
+  }
+
   .panel .content {
     padding: 0.5rem 1rem;
   }
@@ -484,5 +504,16 @@ form.sign-up-form {
     border-top-left-radius: 15% 5%;
     border-top-right-radius: 15% 5%;
     margin: auto;
+  }
+
+  .password .col-6{
+    min-width: 100%;
+    padding: 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content .title-pemira {
+    padding-top: 11px;
   }
 }
