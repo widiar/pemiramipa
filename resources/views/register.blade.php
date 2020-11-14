@@ -14,12 +14,12 @@
                 <div class="round-circle">
                     <img src="{{ asset('dist/desain-web/logo-bpm.png') }}" alt="logo bpm" height="100%" class="logo-title">
                 </div>
-                <div class="round-circle">
-                    <img src="{{ asset('dist/desain-web/logo-pemira.png') }}" alt="logo pemira" height="100%" class="logo-title">
-                </div>
                 <div class="title-pemira">
                     <h3>Pemilu Raya FMIPA</h3>
                     <p>Universitas Udayana</p>
+                </div>
+                <div class="round-circle">
+                    <img src="{{ asset('dist/desain-web/logo-pemira.png') }}" alt="logo pemira" height="100%" class="logo-title">
                 </div>
             </div>
             <img src="{{ asset('dist/desain-web/daftar.svg') }}" class="image" alt="vektor daftar" />
@@ -43,8 +43,6 @@
                             {{ session('err') }}
                         </div>
                         @endif
-
-                        <a target="_blank" href="{{ asset('dist/ketentuan/Prosedur Pemira FMIPA.pdf') }}" download class="ketentuan text-left">Ketentuan Mendaftar</a>
                         
                         <div class="form-group mb-3">
                             <label for="">Nama Lengkap</label>
@@ -105,7 +103,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="row password-ulang">
+                        <div class="row password-ulang password">
                             <div class="col-6">
                                 <div class="form-group mb-3">
                                     <label for="">Password</label>
@@ -165,7 +163,10 @@
                             <small class="text-danger">{{ $message }}</small>
                             @enderror
                         </div>
+                        <a target="_blank" href="{{ asset('dist/ketentuan/Prosedur Pemira FMIPA.pdf') }}" download class="ketentuan">Ketentuan Mendaftar</a>
                         <hr>
+
+                        
                         <input type="hidden" name="response" class="resp" value="">
                         <button type="submit" class="btn register solid btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button>
                     </form>
