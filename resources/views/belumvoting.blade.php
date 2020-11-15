@@ -5,7 +5,7 @@
 
 @section('diluarlogin')
 <div class="content">
-    <div class="container-fluid">
+    <div class="container-fluid" style="position: absolute; top: 25%">
         <div class="belum">
             <img src="{{asset('dist/img/logo pemira 2020.png')}}" class="img-responsive" alt="" height="100px">
             <h1 class="mb-5">Voting Countdown</h1>
