@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.card,
+input {
+  font-family: "Poppins", sans-serif;
+}
+
+.login-logo {
+    font-weight: bold;
+    margin: auto;
+    font-size: 2.2rem;
+    color: #444;
+}
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-align: center;
+    border-radius: 25%;
+    transform: translate(-50%, -50%);
+}
+
+.btn {
+    width: 150px;
+    background-color: #c71f4e;
+    border: none;
+    outline: none;
+    height: 49px;
+    border-radius: 49px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    margin: auto;
+  }

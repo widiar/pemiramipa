@@ -1,6 +1,10 @@
 @extends('masterTemplate.login')
 
 @section('title','Registrasi Pemira FMIPA')
+@section('csstambahan')
+    <link rel="stylesheet" href="{{ asset('dist/css/register-style.css') }}">
+@endsection
+
 {{-- @section('login-text', 'Register') --}}
 
 @section('content')

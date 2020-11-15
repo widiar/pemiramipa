@@ -20,8 +20,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('dist/css/adminlte.css')}}">
     <link rel="stylesheet" href="{{ asset('dist/css/dashboard.css') }}">
-    <link rel="stylesheet" href="{{ asset('dist/css/register-style.css') }}">
 
+    @yield('csstambahan')
+    
     <!-- <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script> -->
     <!-- Google ReChapta -->
     <script src="https://www.google.com/recaptcha/api.js"></script>
