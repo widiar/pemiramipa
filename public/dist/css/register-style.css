@@ -294,12 +294,16 @@ form.sign-up-form {
 }
 
 .ketentuan {
-  text-align: left !important;
+  /* text-align: left !important; */
   margin-bottom: 5px;
   color: #444;
   font-weight: bold;
   text-decoration: underline;
 }
+
+/* .file-name {
+  flex-wrap: nowrap;
+} */
 
 @media (max-width: 870px) {
 
@@ -515,5 +519,38 @@ form.sign-up-form {
 @media (max-width: 480px) {
   .content .title-pemira {
     padding-top: 11px;
+  }
+}
+
+@media (max-width: 400px) {
+  .content .logo-bpm, .content .logo-pemira {
+    position: absolute;
+    height:50px;
+    width:50px;
+  }
+
+
+  .content .logo-bpm {
+    margin-left: 0px;
+    left: 25%;
+  }
+
+  .content .logo-pemira {
+    left: 50%;
+  }
+
+  .content .title-pemira {
+    margin-top: 50px;
+    padding-top: 10px;
+    max-width: 200px;
+  }
+
+  .signin-signup {
+    top: 38%;
+  }
+
+  .panel .content {
+    position: absolute;
+    top: 10%;
   }
 }
