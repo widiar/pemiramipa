@@ -11,14 +11,14 @@
     <div class="panels-container">
         <div class="panel left-panel">
             <div class="content">
-                <div class="round-circle">
+                <div class="round-circle logo-bpm">
                     <img src="{{ asset('dist/desain-web/logobpm.png') }}" alt="logo bpm" height="100%" class="logo-title">
                 </div>
                 <div class="title-pemira">
                     <h3>Pemilu Raya FMIPA</h3>
                     <p>Universitas Udayana</p>
                 </div>
-                <div class="round-circle">
+                <div class="round-circle logo-pemira">
                     <img src="{{ asset('dist/desain-web/logo-pemira.png') }}" alt="logo pemira" height="100%" class="logo-title">
                 </div>
             </div>
@@ -142,7 +142,7 @@
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input @error('ktm') is-invalid @enderror" id="ktm" name="ktm">
-                                    <label class="custom-file-label" for="ktm">Pilih File</label>
+                                    <label class="file-name custom-file-label" for="ktm">Pilih File</label>
                                 </div>
                             </div>
                             <small class="text-info">*Batas file sebesar 1mb</small><br>
@@ -155,7 +155,7 @@
                             <div class="input-group">
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input @error('fotbar') is-invalid @enderror" id="fotbar" name="fotbar">
-                                    <label class="custom-file-label" for="fotbar">Pilih File</label>
+                                    <label class="file-name custom-file-label" for="fotbar">Pilih File</label>
                                 </div>
                             </div>
                             <small class="text-info">*Batas file sebesar 5mb</small><br>
