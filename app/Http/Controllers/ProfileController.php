@@ -103,7 +103,7 @@ class ProfileController extends Controller
         if ($rechapta->success == false) {
             return redirect('/login')->with('status', 'Anda Robot :)');
         }
-        // $data = User::where('nim', $request->nim)->first();
+        // $data = User::where('nim', $request->nim)->first();        
         $data = User::with('mahasiswa')->find($request->nim);
         //cara manual
         // dd($data->mahasiswa->waktuVoting);
@@ -136,6 +136,7 @@ class ProfileController extends Controller
             return redirect('/belumwaktunyavoting');
 
         //cara laravel
+        dd($request->all());
         $cr = [
             'nim' => $request->nim,
             'password' => $request->password,
