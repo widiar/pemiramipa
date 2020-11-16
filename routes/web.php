@@ -42,6 +42,7 @@ Route::post('/forgotpassword', 'ProfileController@storepasslewatemail');
 
 //dasboard
 Route::group(['middleware' => 'auth'], function () {
+    // Route::auth();
     Route::get('/', function () {
         return view('dashboard.panduan');
     });
@@ -62,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 //admin
 Route::group(['middleware' => ['auth', 'cekrole']], function () {
+    // Route::auth();
     Route::get('/verifikasipemilih', 'AdminController@verifpemilih');
     Route::get('/verifikasipemilih/{mahasiswa}', 'AdminController@ktmpemilih');
     Route::patch('/verifikasipemilih/{mahasiswa}', 'AdminController@ktmverif');
