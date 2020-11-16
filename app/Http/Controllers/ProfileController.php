@@ -38,7 +38,7 @@ class ProfileController extends Controller
         // return redirect('/register')->with('err', 'Anda berhasil Mendaftar');
         $rules = [
             'nama' => 'required',
-            'nim' => 'required|size:10|unique:mahasiswa',
+            'nim' => 'required|unique:mahasiswa|digits:10',
             'password' => 'required|same:password2|min:8',
             'ktm' => 'required|image|mimes:png,jpeg|max:1024',
             'fotbar' => 'required|image|mimes:png,jpeg|max:5120',
@@ -136,7 +136,6 @@ class ProfileController extends Controller
             return redirect('/belumwaktunyavoting');
 
         //cara laravel
-        dd($request->all());
         $cr = [
             'nim' => $request->nim,
             'password' => $request->password,
