@@ -6,6 +6,7 @@ use App\Mahasiswa;
 use App\Mail\VerifikasiPemilihPresma;
 use App\User;
 use App\Voting;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\Mail;
@@ -15,7 +16,6 @@ class AdminController extends Controller
 {
     public function verifpemilih(Request $request)
     {
-        $mahasiswa = User::with('mahasiswa')->where('role', 0)->paginate(10);
         // dd($tmp);
         // $mahasiswa = Mahasiswa::where('role', 0)->paginate(2);
 
@@ -25,7 +25,14 @@ class AdminController extends Controller
         // $alldata = Mahasiswa::where('role', 0)->orderBy('prodi', 'asc')->get()->toArray();
         // $data = array_slice($alldata, (($cur * $perpage) - $perpage), $perpage, true);
         // $mahasiswa = new LengthAwarePaginator($data, count($alldata), $perpage, $cur, ['path' => $request->url()]);
-
+        if ($request->search) {
+            $input = $request->search;
+            $mahasiswa = User::with('mahasiswa')->whereHas('mahasiswa', function (Builder $q) use ($input) {
+                $q->where('nama', 'like', '%' . $input . '%')->orWhere('nim', $input);
+            })->where('role', 0)->paginate(10);
+        } else {
+            $mahasiswa = User::with('mahasiswa')->where('role', 0)->paginate(10);
+        }
         return view('admin.verifikasipemilih', compact('mahasiswa'));
     }
     public function ktmpemilih($id)
