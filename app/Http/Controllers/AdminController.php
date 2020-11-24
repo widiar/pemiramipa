@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mahasiswa;
-use App\Mail\VerifikasiPemilihPresma;
+use App\Mail\VerifikasiPemilihPemira;
 use App\User;
 use App\Voting;
 use Illuminate\Database\Eloquent\Builder;
@@ -77,7 +77,7 @@ class AdminController extends Controller
     {
         User::where('nim', $mahasiswa->nim)->update(['verif' => 1]);
         $user = User::where('nim', $mahasiswa->nim)->first();
-        Mail::to($user->email)->send(new VerifikasiPemilihPresma($mahasiswa->nim));
+        Mail::to($user->email)->send(new VerifikasiPemilihPemira($mahasiswa->nim));
         return "Sukses";
     }
     public function ktmgajadiverif($nim)
