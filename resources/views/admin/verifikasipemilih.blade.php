@@ -6,6 +6,11 @@
 @endsection
 @section('content')
 <div class="content">
+    <div class="input-group mb-2 ml-3">
+        <form action="" method="get" class="form-group" style="width: 300px;">
+            <input type="text" name="search" class="form-control" placeholder="Search dengan nama / nim" value="">
+        </form>
+    </div>
     <div class="container-fluid">
         <div class="card shadow">
             <div class="card-body">

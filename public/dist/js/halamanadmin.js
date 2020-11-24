@@ -17,7 +17,6 @@ $(document).ready(function () {
             url: $(this).attr("href"),
             dataType: "json",
             success: function (ntap) {
-                console.log(ntap[0]);
                 $(".ktmmodal").html(ntap[0]);
                 $(".ktmmodalfooter").html(ntap[1]);
             },
