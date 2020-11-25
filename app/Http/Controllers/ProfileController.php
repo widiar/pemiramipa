@@ -133,8 +133,11 @@ class ProfileController extends Controller
         $vote = Voting::first();
         $waktu = $vote->waktuVote;
         if ($data && $waktu == 0 && $data->role == 0)
-            return redirect('/belumwaktunyavoting');
+            return redirect('/countdown');
 
+        if ($data && $data->mahasiswa->waktuVoting != $waktu && $data->role == 0) {
+            return redirect('/login')->with('status', 'Anda belum waktunya untuk memilih')->withInput();
+        }
         //cara laravel
         $cr = [
             'nim' => $request->nim,
