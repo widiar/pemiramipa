@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 //UPDATE CHART
 Route::get('coba', 'DashboardController@updatechart')->name('updatechart');
 
-Route::get('/belumwaktunyavoting', function () {
+Route::get('/countdown', function () {
     return view('belumvoting');
 });
 //login

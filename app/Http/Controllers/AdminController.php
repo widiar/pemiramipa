@@ -119,7 +119,8 @@ class AdminController extends Controller
     {
         // dd($request->all());
         if (isset($request->mulai)) {
-            Voting::where('id', 1)->update(['waktuVote' => 1]);
+            $nilai = $request->mulai;
+            Voting::where('id', 1)->update(['waktuVote' => $nilai]);
             return redirect('/mulai');
         } else {
             Voting::where('id', 1)->update(['waktuVote' => 0]);
