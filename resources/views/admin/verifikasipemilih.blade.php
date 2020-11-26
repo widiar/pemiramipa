@@ -73,7 +73,7 @@
                 </table>
             </div>
             <div class="ml-3">
-                {{$mahasiswa->links()}}
+                {{$mahasiswa->withQueryString()->links()}}
             </div>
         </div>
 
