@@ -28,7 +28,7 @@ class AdminController extends Controller
         if ($request->search) {
             $input = $request->search;
             $mahasiswa = User::with('mahasiswa')->whereHas('mahasiswa', function (Builder $q) use ($input) {
-                $q->where('nama', 'like', '%' . $input . '%')->orWhere('nim', $input);
+                $q->where('nama', 'like', '%' . $input . '%')->orWhere('nim', 'like', '%' . $input . '%');
             })->where('role', 0)->paginate(10);
         } else {
             $mahasiswa = User::with('mahasiswa')->where('role', 0)->paginate(10);
