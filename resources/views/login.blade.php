@@ -91,7 +91,7 @@
             Swal.fire(
                 "Oops!",
                 $(".warning").html(),
-                "warning"
+                "info"
             )
         });
     })

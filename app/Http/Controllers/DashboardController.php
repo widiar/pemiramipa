@@ -50,6 +50,11 @@ class DashboardController extends Controller
                     Voting::where('id', 1)->update(['fisika1' => $suara->fisika1 + 1]);
                 else
                     Voting::where('id', 1)->update(['fisika2' => $suara->fisika2 + 1]);
+            } elseif (strcmp($mahasiswa->prodi, 'Kimia') == 0) {
+                if ($request->calonhima == 1)
+                    Voting::where('id', 1)->update(['kimia1' => $suara->kimia1 + 1]);
+                else
+                    Voting::where('id', 1)->update(['kimia2' => $suara->kimia2 + 1]);
             } elseif (strcmp($mahasiswa->prodi, 'Biologi') == 0) {
                 if ($request->calonhima == 1)
                     Voting::where('id', 1)->update(['bio1' => $suara->bio1 + 1]);
