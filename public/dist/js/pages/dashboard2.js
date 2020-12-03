@@ -76,8 +76,8 @@ $(document).ready(function () {
             if ($('input[name="calonhima"]:checked').length == 1) {
                 Swal.fire({
                     title: "Anda Yakin?",
-                    text:
-                        "Anda tidak bisa pindah ke lain hati lagi jika sudah memilih",
+                    html:
+                        "Anda tidak bisa pindah ke lain hati lagi jika sudah memilih. <br>Dan anda otomatis logout",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
@@ -98,9 +98,7 @@ $(document).ready(function () {
                                         "success"
                                     ).then((result) => {
                                         if (result.value) {
-                                            window.location.href = $(
-                                                location
-                                            ).attr("href");
+                                            window.location.href = "/logout";
                                         }
                                     });
                                 } else {

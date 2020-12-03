@@ -8,7 +8,7 @@
 <div class="content">
     <div class="input-group mb-2 ml-3">
         <form action="" method="get" class="form-group" style="width: 300px;">
-            <input type="text" name="search" class="form-control" placeholder="Search dengan nama / nim" value="">
+            <input type="text" name="search" class="form-control" placeholder="Search dengan nama / nim" value="<?php if (isset($_GET['search'])) echo $_GET['search'] ?>" required>
         </form>
     </div>
     <div class="container-fluid">

@@ -28,7 +28,7 @@
             </div>
             @endif
             @if(session('warning'))
-            <div class="alert alert-warning">
+            <div class="alert alert-warning warning">
                 {{ session('warning') }}
             </div>
             @endif
@@ -86,5 +86,14 @@
         $(".resp").val(token);
         document.getElementById("iniformlogin").submit();
     }
+    $(document).ready(function() {
+        $(".warning").each(function() {
+            Swal.fire(
+                "Oops!",
+                $(".warning").html(),
+                "info"
+            )
+        });
+    })
 </script>
 @endsection
