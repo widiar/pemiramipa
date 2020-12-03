@@ -15,14 +15,6 @@
              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                  <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                 <li class="nav-item">
-                     <a href="/panduan" class="nav-link{{request()->is('panduan') ? ' active' : '' }}">
-                         <i class="nav-icon fas fa-book-open"></i>
-                         <p>
-                             Panduan
-                         </p>
-                     </a>
-                 </li>
                  @if(auth()->user()->role==0)
                  <li class="nav-item">
                      <a href="/voting" class="nav-link{{request()->is('voting') ? ' active' : '' }}">
@@ -33,17 +25,7 @@
                      </a>
                  </li>
                  @endif
-                 @if(auth()->user()->role==2)
-                 <li class="nav-item">
-                     <a href="/superadmin" class="nav-link{{request()->is('superadmin') ? ' active' : '' }}">
-                         <i class="nav-icon fas fa-vote-yea"></i>
-                         <p>
-                             SuperAdmin
-                         </p>
-                     </a>
-                 </li>
-                 @endif
-                 @if(auth()->user()->role==1)
+                 @if(auth()->user()->role==1 || auth()->user()->role==2)
                  <li class="nav-item">
                      <a href="/mulai" class="nav-link{{request()->is('mulai') ? ' active' : '' }}">
                          <i class="nav-icon fas fa-vote-yea"></i>
@@ -52,32 +34,12 @@
                          </p>
                      </a>
                  </li>
-                 @endif
-                 @if(auth()->user()->role == 1 || auth()->user()->role==2)
                  <div class="garis-sidebar"></div>
                  <li class="nav-item">
                      <a href="/verifikasipemilih" class="nav-link{{request()->is('verifikasipemilih') ? ' active' : '' }}">
                          <i class="nav-icon fas fa-user-check"></i>
                          <p>
                              Verifikasi Pemilih
-                         </p>
-                     </a>
-                 </li>
-                 <!-- <li class="nav-item">
-           <a href="/admintambah" class="nav-link{{request()->is('admintambah') ? ' active' : '' }}">
-             <i class="nav-icon fas fa-user-plus"></i>
-             <p>
-               Tambah Admin
-             </p>
-           </a>
-         </li> -->
-                 @endif
-                 <div class="garis-sidebar"></div>
-                 <li class="nav-item">
-                     <a href="/datakandidat" class="nav-link{{request()->is('datakandidat') ? ' active' : '' }}">
-                         <i class="nav-icon fas fa-id-card"></i>
-                         <p>
-                             Data Kandidat
                          </p>
                      </a>
                  </li>
@@ -106,6 +68,7 @@
                          </p>
                      </a>
                  </li>
+                 @endif
              </ul>
          </nav>
          <!-- /.sidebar-menu -->

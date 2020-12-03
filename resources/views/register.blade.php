@@ -2,7 +2,7 @@
 
 @section('title','Registrasi Pemira FMIPA')
 @section('csstambahan')
-    <link rel="stylesheet" href="{{ asset('dist/css/register-style.css') }}">
+<link rel="stylesheet" href="{{ asset('dist/css/register-style.css') }}">
 @endsection
 
 {{-- @section('login-text', 'Register') --}}
@@ -47,7 +47,7 @@
                             {{ session('err') }}
                         </div>
                         @endif
-                        
+
                         <div class="form-group mb-3">
                             <label for="">Nama Lengkap</label>
                             <div class="input-group">
@@ -170,16 +170,16 @@
                         <a target="_blank" href="{{ asset('dist/ketentuan/Prosedur Pemira FMIPA.pdf') }}" download class="ketentuan">Ketentuan Mendaftar</a>
                         <hr>
 
-                        
+
                         <input type="hidden" name="response" class="resp" value="">
                         <button type="submit" class="btn register solid btn-block g-recaptcha" data-sitekey="{{env('SITE_KEY')}}" data-callback='onSubmit' data-action='submit'>Register</button>
                     </form>
                 </div>
-                
+
 
                 <div class="contact-person">
                     <h6><strong>Contact Person :</strong></h6>
-        
+
                     <ul class="flex-orang">
                         <li class="orang">
                             Bryan
@@ -199,10 +199,10 @@
                 </div>
             </div>
 
-            
+
         </div>
 
-        
+
 
     </div>
 

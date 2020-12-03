@@ -138,6 +138,10 @@ class ProfileController extends Controller
         if ($data && $data->mahasiswa->waktuVoting != $waktu && $data->role == 0) {
             return redirect('/login')->with('status', 'Anda belum waktunya untuk memilih')->withInput();
         }
+
+        if ($data && $data->mahasiswa->udahvotinghima == 1) {
+            return redirect('/login')->with('warning', 'Anda sudah memilih');
+        }
         //cara laravel
         $cr = [
             'nim' => $request->nim,
@@ -145,7 +149,11 @@ class ProfileController extends Controller
             'verif' => 1
         ];
         if (Auth::attempt($cr)) {
-            return redirect('/panduan');
+            if ($data->role == 0) {
+                return redirect('/voting');
+            } else {
+                return redirect('/mulai');
+            }
         } else {
             if ($data) {
                 if ($data->verif == 0)
