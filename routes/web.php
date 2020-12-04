@@ -42,7 +42,7 @@ Route::post('/forgotpassword', 'ProfileController@storepasslewatemail');
 
 Route::get('/', function () {
     return view('dashboard.panduan');
-});
+})->middleware('auth');
 //dasboard
 Route::group(['middleware' => ['auth', 'userbiasa']], function () {
     Route::get('/voting', 'DashboardController@voting');
