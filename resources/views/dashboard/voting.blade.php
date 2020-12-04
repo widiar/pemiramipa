@@ -1,5 +1,9 @@
 @extends('masterTemplate.master')
 
+@yield('atasCssOrScript')
+<link rel="stylesheet" href="{{ asset('dist/css/voting-style.css') }}">
+@endsection
+
 @section('title','Pemira FMIPA')
 @if($mahasiswa->udahVoting == 0 || $mahasiswa->udahvotinghima == 0)
 @section('content')
@@ -15,10 +19,10 @@
                 <div class="row justify-content-center bem">
                     <div class="col-md-6 nopad text-center mb-3 mar">
                         <label class="bem-radio">
-                            <img class="img-responsive" src="/img/fotocalon/calon1.png" />
+                            <img class="img-responsive" src="/img/fotocalon/gubernur1.jpg" />
                             <input type="radio" name="calonbem" value="1" />
                             <i class="fas fa-check-square"></i>
-                            <br><span><b>Pilihan 1</b></span>
+                            <br><span><b>Ketua</b></span>
                         </label>
                     </div>
                     <div class="col-md-6 nopad text-center mb-3 mar">
@@ -83,7 +87,7 @@
                 <div class="row justify-content-center prodi">
                     <div class="col-md-6 nopad text-center mb-3 mar">
                         <label class="prodi-radio">
-                            <img class="img-responsive" src="/img/fotocalon/calon4.png" />
+                            <img class="img-responsive" src="/img/fotocalon/mat1.jpg" width="50%"/>
                             <input type="radio" name="calonhima" value="1" />
                             <i class="fas fa-check-square"></i>
                             <br><span><b>Pilihan 1</b></span>

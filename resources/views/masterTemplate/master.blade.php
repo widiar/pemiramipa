@@ -9,6 +9,9 @@
     @yield('meta')
     <title>@yield('title')</title>
 
+    @yield('csstambahan')
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ asset('dist/desain-web/logo-pemira.png') }}">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
     <!-- overlayScrollbars -->
@@ -20,6 +23,8 @@
     <link rel="stylesheet" href="{{ asset('plugins/toastr/toastr.min.css') }}">
     <!-- DataTables -->
     <link rel="stylesheet" href="{{ asset('plugins/datatables/datatables.min.css') }}">
+
+    
 
     <!-- <link rel="shortcut icon" href="{{ asset('dist/img/logo pemira 2020.png') }}" type="image/x-icon"> -->
 
