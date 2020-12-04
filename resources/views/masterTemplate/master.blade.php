@@ -31,8 +31,9 @@
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
     <div class="wrapper">
 
-        @include('masterTemplate.navbar')
-        @include('masterTemplate.sidebar')
+        @yield('nav-side')
+        {{-- @include('masterTemplate.navbar')
+        @include('masterTemplate.sidebar') --}}
         <div class="content-wrapper">
             <div class="content-header">
                 <div class="container-fluid">
@@ -53,13 +54,10 @@
         <!-- /.control-sidebar -->
 
         <!-- Main Footer -->
-        <footer class="main-footer">
+        <!-- <footer class="main-footer">
             <strong>Copyright &copy; 2020 Widi.</strong>
-            All rights reserved.
-            <!-- <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.5
-    </div> -->
-        </footer>
+            All rights reserved. 
+        </footer> -->
     </div>
     <!-- ./wrapper -->
 

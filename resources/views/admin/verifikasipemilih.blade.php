@@ -1,5 +1,10 @@
 @extends('masterTemplate.master')
 
+@section('nav-side')
+@include('masterTemplate.navbar')
+@include('masterTemplate.sidebar')
+@endsection
+
 @section('title','Verifikasi Mahasiswa')
 @section('content-header','Verifikasi')
 @section('atasCssOrScript')

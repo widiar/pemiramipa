@@ -40,20 +40,15 @@ Route::get('/resetpass', 'ProfileController@resetpassemail');
 Route::get('/forgotpassword', 'ProfileController@ubahpasslewatemail');
 Route::post('/forgotpassword', 'ProfileController@storepasslewatemail');
 
+Route::get('/', function () {
+    return view('dashboard.panduan');
+});
 //dasboard
-Route::group(['middleware' => 'auth'], function () {
-    // Route::auth();
-    Route::get('/', function () {
-        return view('dashboard.panduan');
-    });
-    // Route::get('/panduan', function () {
-    //     return view('dashboard.panduan');
-    // });
+Route::group(['middleware' => ['auth', 'userbiasa']], function () {
     Route::get('/voting', 'DashboardController@voting');
     // Route::get('/datakandidat', function () {
     //     return view('dashboard.datakandidat');
     // });
-    Route::post('/dashboard/gantipassword', 'DashboardController@gantipassword');
     Route::post('/masuksuara', 'DashboardController@masuksuara');
 });
 
@@ -63,7 +58,7 @@ Route::group(['middleware' => ['auth', 'cekrole']], function () {
     Route::get('/dashboard/ubahpassword', function () {
         return view('dashboard.ubahpassword');
     });
-    Route::get('/datasuara', 'DashboardController@suara');
+    Route::post('/dashboard/gantipassword', 'DashboardController@gantipassword');
     Route::get('/verifikasipemilih', 'AdminController@verifpemilih');
     Route::get('/verifikasipemilih/{mahasiswa}', 'AdminController@ktmpemilih');
     Route::patch('/verifikasipemilih/{mahasiswa}', 'AdminController@ktmverif');
@@ -73,4 +68,8 @@ Route::group(['middleware' => ['auth', 'cekrole']], function () {
     // Route::get('/superadmin', 'AdminController@superadmin');
     Route::get('/mulai', 'AdminController@mulai');
     Route::post('/mulai', 'AdminController@mulaiupdate');
+});
+
+Route::group(['middleware' => ['auth', 'superadmin']], function () {
+    Route::get('/datasuara', 'DashboardController@suara');
 });

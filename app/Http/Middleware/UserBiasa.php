@@ -2,10 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class CekRole
+use Closure;
+
+class UserBiasa
 {
     /**
      * Handle an incoming request.
@@ -17,10 +18,10 @@ class CekRole
     public function handle($request, Closure $next)
     {
         $user = Auth::user();
-        if ($user->role == 1)
+        if ($user->role == 0)
             return $next($request);
-        else if ($user->role == 0)
-            return redirect('/voting');
+        else if ($user->role == 1)
+            return redirect('/mulai');
         else if ($user->role == 2)
             return redirect('/datasuara');
         else

@@ -132,33 +132,32 @@ class ProfileController extends Controller
         //untuk waktu login tombol admin
         $vote = Voting::first();
         $waktu = $vote->waktuVote;
-        if ($data && $waktu == 0 && $data->role == 0)
-            return redirect('/countdown');
 
-        if ($data && $data->mahasiswa->waktuVoting != $waktu && $data->role == 0) {
-            return redirect('/login')->with('status', 'Anda belum waktunya untuk memilih')->withInput();
-        }
-
-        if ($data && $data->mahasiswa->udahvotinghima == 1) {
-            return redirect('/login')->with('warning', 'Anda sudah memilih');
-        }
         //cara laravel
         $cr = [
             'nim' => $request->nim,
             'password' => $request->password,
-            'verif' => 1
+            // 'verif' => 1
         ];
         if (Auth::attempt($cr)) {
+            if ($data && $data->verif == 0)
+                return redirect('/login')->with('status', 'NIM Anda belum di verifikasi. Silahkan hubungi panitia')->withInput();
+            if ($data && $waktu == 0 && $data->role == 0)
+                return redirect('/countdown');
+            if ($data && $data->mahasiswa->waktuVoting != $waktu && $data->role == 0) {
+                return redirect('/login')->with('status', 'Anda belum waktunya untuk memilih')->withInput();
+            }
+            if ($data && $data->mahasiswa->udahvotinghima == 1) {
+                return redirect('/login')->with('warning', 'Anda sudah memilih');
+            }
             if ($data->role == 0) {
                 return redirect('/voting');
+            } else if ($data->role == 2) {
+                return redirect('/datasuara');
             } else {
                 return redirect('/mulai');
             }
         } else {
-            if ($data) {
-                if ($data->verif == 0)
-                    return redirect('/login')->with('status', 'NIM Anda belum di verifikasi. Silahkan hubungi panitia')->withInput();
-            }
             return redirect('/login')->with('status', 'NIM atau Password Anda Salah')->withInput();
         }
     }
