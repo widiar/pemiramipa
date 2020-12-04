@@ -1,8 +1,8 @@
 @extends('masterTemplate.master')
 
 @section('nav-side')
-    @include('masterTemplate.navbar')
-    @include('masterTemplate.sidebar')
+@include('masterTemplate.navbar')
+@include('masterTemplate.sidebar')
 @endsection
 
 @section('title','Verifikasi Mahasiswa')

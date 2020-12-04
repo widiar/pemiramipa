@@ -152,6 +152,8 @@ class ProfileController extends Controller
             }
             if ($data->role == 0) {
                 return redirect('/voting');
+            } else if ($data->role == 2) {
+                return redirect('/datasuara');
             } else {
                 return redirect('/mulai');
             }

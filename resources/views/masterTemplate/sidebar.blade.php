@@ -45,11 +45,11 @@
                  </li>
                  {{-- <li class="nav-item">
                      <a href="/datasuara" class="nav-link{{request()->is('datasuara') ? ' active' : '' }}">
-                         <i class="nav-icon fas fa-vote-yea"></i>
-                         <p>
-                             Data Suara
-                         </p>
-                     </a>
+                 <i class="nav-icon fas fa-vote-yea"></i>
+                 <p>
+                     Data Suara
+                 </p>
+                 </a>
                  </li> --}}
                  <div class="garis-sidebar"></div>
                  <li class="nav-item">
