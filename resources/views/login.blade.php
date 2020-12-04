@@ -14,7 +14,7 @@
     <div class="text-tittle">
 
     </div>
-    <div class="card" style="width: 500px">
+    <div class="card" style="width: 100%">
         <div class="card-body login-card-body">
             {{-- <p class="login-box-msg">Login</p> --}}
             @if(session('status'))
@@ -70,9 +70,9 @@
             <p class="mb-1 text-center">
                 <a href="lupapassword">Lupa Password</a>
             </p>
-            <p class="mb-0 text-center">
+            {{-- <p class="mb-0 text-center">
                 <a href="register">Register akun baru</a>
-            </p>
+            </p> --}}
         </div>
         <!-- /.login-card-body -->
     </div>
