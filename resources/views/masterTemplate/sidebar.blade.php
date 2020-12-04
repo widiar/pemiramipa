@@ -43,14 +43,14 @@
                          </p>
                      </a>
                  </li>
-                 <li class="nav-item">
+                 {{-- <li class="nav-item">
                      <a href="/datasuara" class="nav-link{{request()->is('datasuara') ? ' active' : '' }}">
                          <i class="nav-icon fas fa-vote-yea"></i>
                          <p>
                              Data Suara
                          </p>
                      </a>
-                 </li>
+                 </li> --}}
                  <div class="garis-sidebar"></div>
                  <li class="nav-item">
                      <a href="/dashboard/ubahpassword" class="nav-link{{request()->is('dashboard/ubahpassword') ? ' active' : '' }}">
