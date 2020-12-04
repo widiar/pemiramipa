@@ -27,9 +27,9 @@ Route::get('/countdown', function () {
     return view('belumvoting');
 });
 //login
-Route::get('/login', 'ProfileController@login');
-Route::get('/register', 'ProfileController@register')->name('login');
-Route::post('/register', 'ProfileController@daftar');
+Route::get('/login', 'ProfileController@login')->name('login');
+// Route::get('/register', 'ProfileController@register')->name('login');
+// Route::post('/register', 'ProfileController@daftar');
 Route::post('/', 'ProfileController@masuk');
 Route::get('/logout', 'ProfileController@logout');
 Route::get('/lupapassword', function () {
