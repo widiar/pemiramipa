@@ -43,33 +43,39 @@ class DashboardController extends Controller
             if (strcmp($mahasiswa->prodi, 'Matematika') == 0) {
                 if ($request->calonhima == 1)
                     Voting::where('id', 1)->update(['matik1' => $suara->matik1 + 1]);
-                else
+                else if ($request->calonhima == 2)
                     Voting::where('id', 1)->update(['matik2' => $suara->matik2 + 1]);
+                else if ($request->calonhima == 3)
+                    Voting::where('id', 1)->update(['matik3' => $suara->matik3 + 1]);
             } elseif (strcmp($mahasiswa->prodi, 'Fisika') == 0) {
                 if ($request->calonhima == 1)
                     Voting::where('id', 1)->update(['fisika1' => $suara->fisika1 + 1]);
-                else
+                else if ($request->calonhima == 2)
                     Voting::where('id', 1)->update(['fisika2' => $suara->fisika2 + 1]);
             } elseif (strcmp($mahasiswa->prodi, 'Kimia') == 0) {
                 if ($request->calonhima == 1)
                     Voting::where('id', 1)->update(['kimia1' => $suara->kimia1 + 1]);
-                else
+                else if ($request->calonhima == 2)
                     Voting::where('id', 1)->update(['kimia2' => $suara->kimia2 + 1]);
             } elseif (strcmp($mahasiswa->prodi, 'Biologi') == 0) {
                 if ($request->calonhima == 1)
                     Voting::where('id', 1)->update(['bio1' => $suara->bio1 + 1]);
-                else
+                else if ($request->calonhima == 2)
                     Voting::where('id', 1)->update(['bio2' => $suara->bio2 + 1]);
             } elseif (strcmp($mahasiswa->prodi, 'Informatika') == 0) {
                 if ($request->calonhima == 1)
                     Voting::where('id', 1)->update(['ilkom1' => $suara->ilkom1 + 1]);
-                else
+                else if ($request->calonhima == 2)
                     Voting::where('id', 1)->update(['ilkom2' => $suara->ilkom2 + 1]);
+                else if ($request->calonhima == 3)
+                    Voting::where('id', 1)->update(['ilkom3' => $suara->ilkom3 + 1]);
             } elseif (strcmp($mahasiswa->prodi, 'Farmasi') == 0) {
                 if ($request->calonhima == 1)
                     Voting::where('id', 1)->update(['farmasi1' => $suara->farmasi1 + 1]);
-                else
+                else if ($request->calonhima == 2)
                     Voting::where('id', 1)->update(['farmasi2' => $suara->farmasi2 + 1]);
+                else if ($request->calonhima == 3)
+                    Voting::where('id', 1)->update(['farmasi3' => $suara->farmasi3 + 1]);
             }
             Mahasiswa::where('nim', $mahasiswa->nim)->update(['udahvotinghima' => 1]);
             return 'Sukses';
