@@ -20,8 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 //ngetes
 
-//UPDATE CHART
-Route::get('coba', 'DashboardController@updatechart')->name('updatechart');
 
 Route::get('/countdown', function () {
     return view('belumvoting');
@@ -71,5 +69,7 @@ Route::group(['middleware' => ['auth', 'cekrole']], function () {
 });
 
 Route::group(['middleware' => ['auth', 'superadmin']], function () {
+    //UPDATE CHART
+    Route::get('coba', 'DashboardController@updatechart')->name('updatechart');
     Route::get('/datasuara', 'DashboardController@suara');
 });
