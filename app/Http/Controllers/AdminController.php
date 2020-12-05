@@ -9,8 +9,12 @@ use App\Voting;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -125,6 +129,45 @@ class AdminController extends Controller
         } else {
             Voting::where('id', 1)->update(['waktuVote' => 0]);
             return redirect('/mulai');
+        }
+    }
+
+    public function nambahuser(Request $request)
+    {
+        $rules = [
+            'nama' => 'required',
+            'nim' => 'required|unique:mahasiswa|digits:10',
+            'prodi' => 'required',
+            'email' => 'email|required|unique:users',
+        ];
+        $messages = [
+            'required' => 'Tolong :attribute di isi',
+            'nim.size' => 'NIM haruslah 10 digit',
+        ];
+        $valid = Validator::make($request->all(), $rules, $messages);
+        if ($valid->fails()) {
+            return redirect('/adduser')->withErrors($valid)->withInput();
+        }
+        $us = Auth::user();
+        $data = [
+            'nama' => $request->nama,
+            'nim' => $request->nim,
+            'prodi' => $request->prodi,
+            'ktm' => $us->nim,
+            'fotbar' => $us->nim,
+        ];
+        $password = Hash::make($request->nim);
+        $user = [
+            'nim' => $request->nim,
+            'password' => $password,
+            'email' => $request->email,
+        ];
+        $u = User::create($user);
+        $m = Mahasiswa::create($data);
+        if ($u && $m) {
+            return redirect('/adduser')->with('status', 'Berhasil Mendaftar');
+        } else {
+            return redirect('/adduser')->with('err', 'Terjadi kesalahan.');
         }
     }
 }

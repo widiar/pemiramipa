@@ -66,6 +66,10 @@ Route::group(['middleware' => ['auth', 'cekrole']], function () {
     // Route::get('/superadmin', 'AdminController@superadmin');
     Route::get('/mulai', 'AdminController@mulai');
     Route::post('/mulai', 'AdminController@mulaiupdate');
+    Route::get('/adduser', function () {
+        return view('admin.adduser');
+    });
+    Route::post('/nambahuser', 'AdminController@nambahuser');
 });
 
 Route::group(['middleware' => ['auth', 'superadmin']], function () {

@@ -43,14 +43,14 @@
                          </p>
                      </a>
                  </li>
-                 {{-- <li class="nav-item">
-                     <a href="/datasuara" class="nav-link{{request()->is('datasuara') ? ' active' : '' }}">
-                 <i class="nav-icon fas fa-vote-yea"></i>
-                 <p>
-                     Data Suara
-                 </p>
-                 </a>
-                 </li> --}}
+                 <li class="nav-item">
+                     <a href="/adduser" class="nav-link{{request()->is('adduser') ? ' active' : '' }}">
+                         <i class="nav-icon fas fa-vote-yea"></i>
+                         <p>
+                             Add User
+                         </p>
+                     </a>
+                 </li>
                  <div class="garis-sidebar"></div>
                  <li class="nav-item">
                      <a href="/dashboard/ubahpassword" class="nav-link{{request()->is('dashboard/ubahpassword') ? ' active' : '' }}">
