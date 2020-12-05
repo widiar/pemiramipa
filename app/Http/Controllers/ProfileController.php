@@ -140,14 +140,20 @@ class ProfileController extends Controller
             // 'verif' => 1
         ];
         if (Auth::attempt($cr)) {
-            if ($data && $data->verif == 0)
+            if ($data && $data->verif == 0) {
+                Auth::logout();
                 return redirect('/login')->with('status', 'NIM Anda belum di verifikasi. Silahkan hubungi panitia')->withInput();
-            if ($data && $waktu == 0 && $data->role == 0)
+            }
+            if ($data && $waktu == 0 && $data->role == 0) {
+                Auth::logout();
                 return redirect('/countdown');
+            }
             if ($data && $data->mahasiswa->waktuVoting != $waktu && $data->role == 0) {
+                Auth::logout();
                 return redirect('/login')->with('status', 'Anda belum waktunya untuk memilih')->withInput();
             }
             if ($data && $data->mahasiswa->udahvotinghima == 1) {
+                Auth::logout();
                 return redirect('/login')->with('warning', 'Anda sudah memilih');
             }
             if ($data->role == 0) {
