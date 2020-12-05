@@ -17,7 +17,7 @@
                         <img class="img-responsive" src="/img/fotocalon/bem1.png" width="75%" />
                         <input type="radio" name="calonbem" value="1" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Calon Bem 1</b></span>
+                        <br><span><b>Nanda Banyu Permana - Rut Winda Tamariska</b></span>
                     </label>
                 </div>
                 <div class="col-md-6 nopad text-center mb-3 mar">
@@ -25,7 +25,7 @@
                         <img class="img-responsive" src="/img/fotocalon/bem2.png" width="75%" />
                         <input type="radio" name="calonbem" value="2" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Calon Bem 2</b></span>
+                        <br><span><b>Kresna Wijaya - Andriani Dwi Pratiwi</b></span>
                     </label>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                         <img class="img-responsive" src="/img/fotocalon/fisika1.jpeg" width="50%" />
                         <input type="radio" name="calonhima" value="1" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 1</b></span>
+                        <br><span><b>Aditya Jaya Mahardika</b></span>
                     </label>
                 </div>
                 <div class="col-md-6 nopad text-center mb-3 mar">
@@ -49,7 +49,7 @@
                         <img class="img-responsive" src="/img/fotocalon/fisika2.jpg" width="50%" />
                         <input type="radio" name="calonhima" value="2" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 2</b></span>
+                        <br><span><b>Made Tinggal Yasa</b></span>
                     </label>
                 </div>
             </div>
@@ -63,7 +63,7 @@
                         <img class="img-responsive" src="/img/fotocalon/kimia1.png" width="50%" />
                         <input type="radio" name="calonhima" value="1" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 1</b></span>
+                        <br><span><b>Dwi Putra Yana</b></span>
                     </label>
                 </div>
                 <div class="col-md-6 nopad text-center mb-3 mar">
@@ -71,7 +71,7 @@
                         <img class="img-responsive" src="/img/fotocalon/kimia2.jpg" width="50%" />
                         <input type="radio" name="calonhima" value="2" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 2</b></span>
+                        <br><span><b>Wayan Kamas Indrawan</b></span>
                     </label>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                         <img class="img-responsive" src="/img/fotocalon/matematika1.png" width="50%" />
                         <input type="radio" name="calonhima" value="1" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 1</b></span>
+                        <br><span><b>Aditya Nursana Yadnya</b></span>
                     </label>
                 </div>
                 <div class="col-md-6 nopad text-center mb-3 mar">
@@ -93,7 +93,7 @@
                         <img class="img-responsive" src="/img/fotocalon/matematika2.jpg" width="50%" />
                         <input type="radio" name="calonhima" value="2" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 2</b></span>
+                        <br><span><b>Angga Permana Wibisana Putra</b></span>
                     </label>
                 </div>
                 <div class="col-md-6 nopad text-center mb-3 mar">
@@ -101,7 +101,7 @@
                         <img class="img-responsive" src="/img/fotocalon/matematika3.jpg" width="50%" />
                         <input type="radio" name="calonhima" value="3" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 3</b></span>
+                        <br><span><b>Aulia Wicaksono</b></span>
                     </label>
                 </div>
             </div>
@@ -115,7 +115,7 @@
                         <img class="img-responsive" src="/img/fotocalon/biologi1.jpg" width="50%" />
                         <input type="radio" name="calonhima" value="1" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 1</b></span>
+                        <br><span><b>Kanigara Anupama Sistra</b></span>
                     </label>
                 </div>
                 <div class="col-md-6 nopad text-center mb-3 mar">
@@ -123,7 +123,7 @@
                         <img class="img-responsive" src="/img/fotocalon/biologi2.jpg" width="50%" />
                         <input type="radio" name="calonhima" value="2" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 2</b></span>
+                        <br><span><b>Adi Ariyanto Wibisono</b></span>
                     </label>
                 </div>
             </div>
@@ -137,7 +137,7 @@
                         <img class="img-responsive" src="/img/fotocalon/farmasi1.jpeg" width="50%" />
                         <input type="radio" name="calonhima" value="1" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 1</b></span>
+                        <br><span><b>Harimbawa Putra</b></span>
                     </label>
                 </div>
                 <div class="col-md-6 nopad text-center mb-3 mar">
@@ -145,7 +145,7 @@
                         <img class="img-responsive" src="/img/fotocalon/farmasi2.jpg" width="50%" />
                         <input type="radio" name="calonhima" value="2" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 2</b></span>
+                        <br><span><b>Bayu Krisnayana</b></span>
                     </label>
                 </div>
                 <div class="col-md-6 nopad text-center mb-3 mar">
@@ -153,7 +153,7 @@
                         <img class="img-responsive" src="/img/fotocalon/farmasi3.png" width="50%" />
                         <input type="radio" name="calonhima" value="3" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 3</b></span>
+                        <br><span><b>Hendra Wijaya</b></span>
                     </label>
                 </div>
             </div>
@@ -167,7 +167,7 @@
                         <img class="img-responsive" src="/img/fotocalon/ilkom1.jpg" width="50%" />
                         <input type="radio" name="calonhima" value="1" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 1</b></span>
+                        <br><span><b>Prawira Adhisastra</b></span>
                     </label>
                 </div>
                 <div class="col-md-6 nopad text-center mb-3 mar">
@@ -175,7 +175,7 @@
                         <img class="img-responsive" src="/img/fotocalon/ilkom2.jpg" width="50%" />
                         <input type="radio" name="calonhima" value="2" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 2</b></span>
+                        <br><span><b>Anom Sukawirasa Putra</b></span>
                     </label>
                 </div>
                 <div class="col-md-6 nopad text-center mb-3 mar">
@@ -183,7 +183,7 @@
                         <img class="img-responsive" src="/img/fotocalon/ilkom3.jpg" width="50%" />
                         <input type="radio" name="calonhima" value="3" />
                         <i class="fas fa-check-square"></i>
-                        <br><span><b>Pilihan 3</b></span>
+                        <br><span><b>Deva Dimastawan Saputra</b></span>
                     </label>
                 </div>
             </div>
