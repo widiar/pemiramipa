@@ -1,25 +1,18 @@
-@extends('masterTemplate.master')
+@extends('masterTemplate.usermaster')
 
 @section('title','Pemira FMIPA')
-@section('content-header', 'Panduan')
 
-@section('content')
-<div class="content">
-    <div class="container-fluid">
-        <div class="jumbotron">
-            <h1 class="display-4">Hello, world!</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-            <hr class="my-4">
-            <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-            <p class="lead">
-                <a href="/logout" class="nav-link logout">
-                    <i class="nav-icon fas fa-sign-out-alt"></i>
-                    <p>
-                        Logout
-                    </p>
-                </a>
-            </p>
-        </div>
+@section('konten')
+<div class="container">
+    <div class="jumbotron" style="background-color: white;">
+        <h1 class="display-4">Hello {{auth()->user()->nim}} </h1>
+        <p class="lead">Ini adalah website untuk melakukan pemilihan Calon Gubernur BEM FMIPA dan Calon HIMA.</p>
+        <hr class="my-4">
+        <p>Silahkan klik tombol <b>Voting</b> untuk memilih, atau tombol <b>Logout</b> untuk keluar.</p>
+        <p class="lead">
+            <a href="/voting" class="btn btn-primary">Voting</a>
+            <a href="/logout" class="logout btn btn-danger">Logout</a>
+        </p>
     </div>
 </div>
 @endsection

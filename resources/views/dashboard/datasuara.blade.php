@@ -1,30 +1,28 @@
-@extends('masterTemplate.master')
+@extends('masterTemplate.usermaster')
 
 @section('title','Pemira FMIPA')
 @section('content-header', 'Data Suara')
 
-@section('content')
-<div class="content">
-    <div class="container-fluid">
-        <div class="judul">
-            <button class="btn btn-primary bem">BEM</button>
-            <button class="btn btn-primary himakom">HIMAKOM</button>
-            <button class="btn btn-primary himabio">HIMABIO</button>
-            <button class="btn btn-primary himatika">HIMATIKA</button>
-            <button class="btn btn-primary himafarma">HIMAFARMA</button>
-            <button class="btn btn-primary himasika">HIMASIKA</button>
-            <button class="btn btn-primary himaki">HIMAKI</button>
-        </div>
-        <div class="isi" style="position: relative; height:100%; width:100%">
-            <div class="card p-4 my-3 mx-auto" style="width: 90%;">
-                <canvas id="myChart" class="bemcanvas"></canvas>
-                <canvas id="himakom" class="himakomcanvas"></canvas>
-                <canvas id="himabio" class="himabiocanvas"></canvas>
-                <canvas id="himatika" class="himatikacanvas"></canvas>
-                <canvas id="himafarma" class="himafarmacanvas"></canvas>
-                <canvas id="himasika" class="himasikacanvas"></canvas>
-                <canvas id="himaki" class="himakicanvas"></canvas>
-            </div>
+@section('konten')
+<div class="container">
+    <div class="judul mt-5" style="margin-left: 70px;">
+        <button class="btn btn-primary bem">BEM</button>
+        <button class="btn btn-primary himakom">ILKOM</button>
+        <button class="btn btn-primary himabio">BIOLOGI</button>
+        <button class="btn btn-primary himatika">MATEMATIKA</button>
+        <button class="btn btn-primary himafarma">FARMASI</button>
+        <button class="btn btn-primary himasika">FISIKA</button>
+        <button class="btn btn-primary himaki">KIMIA</button>
+    </div>
+    <div class="isi" style="position: relative; height:100%; width:100%">
+        <div class="card p-4 my-3 mx-auto" style="width: 90%;">
+            <canvas id="myChart" class="bemcanvas"></canvas>
+            <canvas id="himakom" class="himakomcanvas"></canvas>
+            <canvas id="himabio" class="himabiocanvas"></canvas>
+            <canvas id="himatika" class="himatikacanvas"></canvas>
+            <canvas id="himafarma" class="himafarmacanvas"></canvas>
+            <canvas id="himasika" class="himasikacanvas"></canvas>
+            <canvas id="himaki" class="himakicanvas"></canvas>
         </div>
     </div>
 </div>

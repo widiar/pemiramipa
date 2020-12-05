@@ -1,7 +1,7 @@
 @extends('masterTemplate.master')
 @section('nav-side')
-    @include('masterTemplate.navbar')
-    @include('masterTemplate.sidebar')
+@include('masterTemplate.navbar')
+@include('masterTemplate.sidebar')
 @endsection
 
 
@@ -20,10 +20,7 @@
                     <div class="row">
                         @csrf
                         <div class="col">
-                            <button type="submit" name="mulai" value="1" class="btn btn-primary btn-lg" {{$vote->waktuVote == 1 ? 'disabled' : ''}}>SESI 1</button>
-                        </div>
-                        <div class="col">
-                            <button type="submit" name="mulai" value="2" class="btn btn-primary btn-lg" {{$vote->waktuVote == 2 ? 'disabled' : ''}}>SESI 2</button>
+                            <button type="submit" name="mulai" value="1" class="btn btn-primary btn-lg" {{$vote->waktuVote == 1 ? 'disabled' : ''}}>MULAI</button>
                         </div>
                         <div class="col">
                             <button type="submit" name="belum" value="0" class="btn btn-danger btn-lg" {{$vote->waktuVote == 0 ? 'disabled' : ''}}>BELUM</button>

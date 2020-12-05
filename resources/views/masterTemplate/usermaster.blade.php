@@ -34,29 +34,8 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-    <div class="wrapper">
 
-        @yield('nav-side')
-        <div class="content-wrapper">
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">@yield('content-header')</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @yield('content')
-        </div>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
-
-    </div>
+    @yield('konten')
     <!-- ./wrapper -->
 
     <!-- REQUIRED SCRIPTS -->
