@@ -148,6 +148,10 @@ class ProfileController extends Controller
                 Auth::logout();
                 return redirect('/countdown');
             }
+            if ($data && $waktu == 5 && $data->role == 0) {
+                Auth::logout();
+                return redirect('/selesai');
+            }
             if ($data && $data->mahasiswa->waktuVoting != $waktu && $data->role == 0) {
                 Auth::logout();
                 return redirect('/login')->with('status', 'Anda belum waktunya untuk memilih')->withInput();

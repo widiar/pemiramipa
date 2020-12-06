@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/countdown', function () {
     return view('belumvoting');
 });
+
+Route::get('/selesai', function () {
+    return view('udahselesai');
+});
 //login
 Route::get('/login', 'ProfileController@login')->name('login');
 // Route::get('/register', 'ProfileController@register')->name('login');
