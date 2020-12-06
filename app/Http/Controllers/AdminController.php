@@ -155,12 +155,14 @@ class AdminController extends Controller
             'prodi' => $request->prodi,
             'ktm' => $us->nim,
             'fotbar' => $us->nim,
+            'waktuVoting' => '1',
         ];
         $password = Hash::make($request->nim);
         $user = [
             'nim' => $request->nim,
             'password' => $password,
             'email' => $request->email,
+            'verif' => '1',
         ];
         $u = User::create($user);
         $m = Mahasiswa::create($data);

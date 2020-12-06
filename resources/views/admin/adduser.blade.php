@@ -13,7 +13,7 @@
     <div class="container-fluid">
         <div class="card shadow p-4 mx-auto w-50">
             <div class="card-header text-center">
-                <h3>MULAI AJA DULU</h3>
+                <h3>Tambah User</h3>
                 @if(session('status'))
                 <div class="alert alert-success sukses">
                     {{ session('status') }}
