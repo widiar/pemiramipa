@@ -26,7 +26,7 @@
                             <button type="submit" name="belum" value="0" class="btn btn-danger btn-lg" {{$vote->waktuVote == 0 ? 'disabled' : ''}}>BELUM</button>
                         </div>
                         <div class="col">
-                            <button type="submit" name="mulai" value="5" class="btn btn-danger btn-lg" {{$vote->waktuVote == 5 ? 'disabled' : ''}}>SELESAI</button>
+                            <button type="submit" name="mulai" value="5" class="btn btn-success btn-lg" {{$vote->waktuVote == 5 ? 'disabled' : ''}}>SELESAI</button>
                         </div>
                     </div>
                 </form>
