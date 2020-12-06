@@ -49,11 +49,11 @@ class AdminController extends Controller
             <div class="row">
                 <div class="col">
                     <h3>Bukti KTM </h3>
-                    <img src="/img/ktm/' . $data->ktm . '" alt="" width="100%">
+                    <img src="/img/ktm/' . $data->ktm . '" alt="' . $data->ktm . '" width="100%">
                 </div>
                 <div class="col">
                     <h3>Bukti Foto Bareng </h3>
-                    <img src="/img/fotbar/' . $data->fotbar . '" alt="" width="100%">
+                    <img src="/img/fotbar/' . $data->fotbar . '" alt="' . $data->ktm . '" width="100%">
                 </div>
             </div>
             ';
