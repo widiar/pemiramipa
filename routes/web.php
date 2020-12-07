@@ -28,6 +28,13 @@ Route::get('/countdown', function () {
 Route::get('/selesai', function () {
     return view('udahselesai');
 });
+Route::get('/', function () {
+    return view('udahselesai');
+});
+
+Route::get('/hasilsuara', function () {
+    return view('hasilsuaraakhir');
+});
 //login
 Route::get('/login', 'ProfileController@login')->name('login');
 // Route::get('/register', 'ProfileController@register')->name('login');
@@ -42,9 +49,9 @@ Route::get('/resetpass', 'ProfileController@resetpassemail');
 Route::get('/forgotpassword', 'ProfileController@ubahpasslewatemail');
 Route::post('/forgotpassword', 'ProfileController@storepasslewatemail');
 
-Route::get('/', function () {
-    return view('dashboard.panduan');
-})->middleware('auth');
+// Route::get('/', function () {
+//     return view('dashboard.panduan');
+// })->middleware('auth');
 //dasboard
 Route::group(['middleware' => ['auth', 'userbiasa']], function () {
     Route::get('/voting', 'DashboardController@voting');
@@ -76,8 +83,8 @@ Route::group(['middleware' => ['auth', 'cekrole']], function () {
     Route::post('/nambahuser', 'AdminController@nambahuser');
 });
 
+//UPDATE CHART
+Route::get('coba', 'DashboardController@updatechart')->name('updatechart');
 Route::group(['middleware' => ['auth', 'superadmin']], function () {
-    //UPDATE CHART
-    Route::get('coba', 'DashboardController@updatechart')->name('updatechart');
     Route::get('/datasuara', 'DashboardController@suara');
 });
